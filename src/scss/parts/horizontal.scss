@@ -1,0 +1,120 @@
+.horizontal__scroll {
+    padding-bottom: 112px;
+    overflow: hidden;
+
+    p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 89.9%;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 54px;
+    }
+
+    &-continer {
+        @media (max-width: 800px) {
+            padding-top: 78px;
+        }
+    }
+
+    &-slides {
+        position: relative;
+        display: flex;
+
+        &._before {
+        }
+
+        & > :not(:first-child) {
+        }
+
+        & > :first-child {
+            // @include adaptive-value("margin-left", 82, 10, 1);
+        }
+    }
+
+    &-slide {
+        position: relative;
+        width: calc(854px + 15px);
+        height: 854px;
+        flex: 0 0 calc(854px + 15px);
+
+        @media (max-width: 1024px) {
+            width: calc(450px + 15px);
+            height: 450px;
+            flex: 0 0 calc(450px + 15px);
+        }
+
+        @media (max-width: 800px) {
+            width: 400px;
+            height: 400px;
+            flex: 0 0 450px;
+        }
+
+        @media (max-width: 425px) {
+            width: 100%;
+            flex: 0 0 100%;
+        }
+
+        div {
+            position: absolute;
+            left: 40px;
+            top: 27px;
+
+            span {
+                display: block;
+                max-width: 438px;
+                width: 100%;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 118.9%;
+                color: #ffffff;
+            }
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            width: calc(100% - 15px);
+            height: 100%;
+            object-fit: cover;
+
+            @media (max-width: 800px) {
+                width: 100%;
+            }
+            @media (max-width: 425px) {
+                width: 100%;
+            }
+        }
+    }
+
+    &-pagination {
+        display: none;
+
+        @media (max-width: 800px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 25px;
+
+            & > :not(:last-child) {
+                margin-right: 10px;
+            }
+
+            span {
+                transition: all 0.3s ease 0s;
+                width: 12px;
+                height: 12px;
+                flex: 0 0 12px;
+                border-radius: 100%;
+                border: 1px solid #ffffff;
+                background: transparent;
+
+                &.swiper-pagination-bullet-active {
+                    background: #ffffff;
+                }
+            }
+        }
+    }
+}
