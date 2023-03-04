@@ -10,31 +10,8 @@ gsap.registerPlugin(ScrollTrigger, TimelineLite);
 const heights = document.querySelectorAll('.height-bg');
 const hiddens = document.querySelectorAll('.hidden');
 
-heights.forEach((height, i) => {
 
-    ScrollTrigger.create({
-        trigger: height,
-        start: "center center",
-        end: "+=50%",
-        // markers: true,
-        onEnter: () => {
-            hiddens[i].classList.add('_show');
-        },
-        onLeave: () => {
-            hiddens[i].classList.add('_hide');
-            hiddens[i].classList.remove('_show');
-        },
-        onEnterBack: () => {
-            hiddens[i].classList.add('_show');
-            hiddens[i].classList.remove('_hide');
-        },
-        onLeaveBack: () => {
-            hiddens[i].classList.remove('_show');
-        },
-        // onRefresh: self => self.progress && self.animation.progress(1),
-    });
 
-})
 
 const subjects = document.querySelector('.advantages__subjects');
 const subjectImages = document.querySelectorAll('.advantages__subjects-image');
@@ -66,13 +43,45 @@ ScrollTrigger.create({
 const slides = gsap.utils.toArray(".horizontal__scroll-slide");
 const sliderBody = document.querySelector('.horizontal__scroll-slides');
 const sliderContainer = document.querySelector('.horizontal__scroll-continer');
-
+const title = document.querySelector('.scroll-animate__title');
 
 let x = slides[0].getBoundingClientRect().width * (slides.length - 1) - (sliderBody.offsetWidth - slides[0].getBoundingClientRect().width)
 
 
 if (window.innerWidth > 800) {
-    let tween = gsap.to(slides, {
+    gsap.set(".horizontal__scroll-slide-body", {
+        yPercent: 50,
+        opacity: 0,
+        duration: 0.5,
+    });
+
+    let tween = gsap.timeline();
+
+    ScrollTrigger.create({
+        trigger: sliderBody,
+        start: "top center",
+        end: "bottom bottom",
+        scrub: true,
+        invalidateOnRefresh: true,
+        onEnter: () => {
+            gsap.to('.horizontal__scroll-slide-body', {
+                yPercent: 0,
+                stagger: 0.15,
+                opacity: 1,
+                duration: 0.5
+            })
+        },
+        onLeaveBack: () => {
+            gsap.to('.horizontal__scroll-slide-body', {
+                yPercent: 50,
+                stagger: 0.15,
+                opacity: 0,
+                duration: 0.5
+            })
+        },
+    })
+
+    tween.to(slides, {
         x: -x,
         ease: "none",
         scrollTrigger: {
@@ -88,7 +97,16 @@ if (window.innerWidth > 800) {
             // },
             end: () => "+=" + sliderBody.offsetWidth,
             onEnter: () => {
-                sliderBody.classList.add('_before')
+                title.classList.add('_hide')
+            },
+            onLeave: () => {
+                title.classList.remove('_hide')
+            },
+            onEnterBack: () => {
+                title.classList.add('_hide')
+            },
+            onLeaveBack: () => {
+                title.classList.remove('_hide')
             },
         }
     });
@@ -116,3 +134,30 @@ else {
         }
     })
 }
+
+
+heights.forEach((height, i) => {
+
+    ScrollTrigger.create({
+        trigger: height,
+        start: "center center",
+        end: "+=50%",
+        markers: true,
+        onEnter: () => {
+            hiddens[i].classList.add('_show');
+        },
+        onLeave: () => {
+            hiddens[i].classList.add('_hide');
+            hiddens[i].classList.remove('_show');
+        },
+        onEnterBack: () => {
+            hiddens[i].classList.add('_show');
+            hiddens[i].classList.remove('_hide');
+        },
+        onLeaveBack: () => {
+            hiddens[i].classList.remove('_show');
+        },
+        // onRefresh: self => self.progress && self.animation.progress(1),
+    });
+
+})

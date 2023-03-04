@@ -1,6 +1,25 @@
+.scroll-animate {
+    @include adaptive-value("padding-top", 150, 100, 1);
+
+    h2 {
+        position: sticky;
+        top: 72px;
+        @include adaptive-value("padding-inline", 82, 10, 1);
+        transition: all 0.5s ease 0s;
+
+        &._hide {
+            opacity: 0;
+            transform: translate(0, -50px);
+        }
+    }
+}
+
 .horizontal__scroll {
     padding-bottom: 112px;
+    background-color: #f2efe6;
     overflow: hidden;
+
+    @include adaptive-value("padding-left", 82, 10, 1);
 
     p {
         font-style: normal;
@@ -11,6 +30,8 @@
         color: #000000;
         margin-bottom: 54px;
     }
+
+    // .horizontal__scroll-continer
 
     &-continer {
         @media (max-width: 800px) {
@@ -32,6 +53,8 @@
             // @include adaptive-value("margin-left", 82, 10, 1);
         }
     }
+
+    // .horizontal__scroll-slide
 
     &-slide {
         position: relative;
@@ -56,20 +79,25 @@
             flex: 0 0 100%;
         }
 
-        div {
-            position: absolute;
-            left: 40px;
-            top: 27px;
+        // .horizontal__scroll-slide-body
 
-            span {
-                display: block;
-                max-width: 438px;
-                width: 100%;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 20px;
-                line-height: 118.9%;
-                color: #ffffff;
+        &-body {
+            div {
+                position: absolute;
+                left: 40px;
+                top: 65px;
+                z-index: 1;
+
+                span {
+                    display: block;
+                    max-width: 438px;
+                    width: 100%;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 118.9%;
+                    color: #ffffff;
+                }
             }
         }
 
@@ -88,6 +116,8 @@
             }
         }
     }
+
+    // .horizontal__scroll-pagination
 
     &-pagination {
         display: none;

@@ -8,12 +8,6 @@
     // .advantages__body
 
     &__body {
-        @include adaptive-value("padding-top", 150, 100, 1);
-
-        h2 {
-            position: sticky;
-            top: 72px;
-        }
     }
 
     // .advantages__scroll
@@ -149,7 +143,7 @@
 
         &-second {
             h4 {
-                & > :nth-child(2){
+                & > :nth-child(2) {
                     i {
                         padding-left: 5ch;
                     }
@@ -160,6 +154,11 @@
                     }
                 }
             }
+        }
+
+        // .advantages__scroll-third
+
+        &-third {
         }
     }
 
