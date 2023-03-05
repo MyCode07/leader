@@ -67,18 +67,20 @@
                 position: absolute;
                 overflow: hidden;
 
-                transition: all 0.7s ease 0s;
-                transform: translate(0, 50px);
-                opacity: 0;
-
-                &._show {
-                    transform: translate(0, 0);
-                    opacity: 1;
-                }
-
-                &._hide {
-                    transform: translate(0, -50px);
+                &:not(.height-animate) {
+                    transition: all 0.7s ease 0s;
+                    transform: translate(0, 50px);
                     opacity: 0;
+
+                    &._show {
+                        transform: translate(0, 0);
+                        opacity: 1;
+                    }
+
+                    &._hide {
+                        transform: translate(0, -50px);
+                        opacity: 0;
+                    }
                 }
             }
 
@@ -130,11 +132,14 @@
 
                 span {
                     display: block;
+                    overflow: hidden;
                 }
 
                 i {
                     font-style: normal;
                     display: block;
+                    transform-origin: bottom;
+                    transform: translate(0, 100%);
                 }
             }
         }

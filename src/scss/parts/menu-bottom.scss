@@ -29,7 +29,7 @@ footer {
     display: flex;
     justify-content: center;
     width: 100%;
-    z-index: 5;
+    z-index: 11;
 
     opacity: 0;
     visibility: hidden;
@@ -262,12 +262,18 @@ footer {
                 }
 
                 .submenu {
-                    position: absolute;
-                    right: 0;
+                    position: fixed;
+                    left: 0;
+                    top: 50%;
+                    transform: translate(-100%, 0);
+                    padding-right: 122px;
+                    top: 0;
+
+                    z-index: -4;
+                    height: auto;
+
                     opacity: 0;
                     visibility: hidden;
-                    z-index: -4;
-                    padding-right: 122px;
                     transition: all 0.3s ease 0s;
 
                     @media (max-width: 1440px) {
@@ -275,7 +281,6 @@ footer {
                     }
 
                     &._open {
-                        position: relative;
                         opacity: 1;
                         visibility: visible;
                         z-index: 2;
@@ -287,6 +292,8 @@ footer {
 
                     li {
                         cursor: pointer;
+                        position: static;
+
                         @media (any-hover: hover) {
                             &:hover {
                                 a {

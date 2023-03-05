@@ -96,14 +96,14 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 
 tl.to('h1 span i', {
-    height: 'auto',
+    height: '1em',
     duration: 0.5,
     delay: 0.5,
     stagger: 0.5
 })
 
 tl.to('h2 span i', {
-    height: 'auto',
+    height: '1em',
     duration: 0.5,
     delay: 0.5,
     stagger: 0.5

@@ -43,14 +43,10 @@
         position: relative;
         display: flex;
 
-        &._before {
-        }
-
-        & > :not(:first-child) {
-        }
-
-        & > :first-child {
-            // @include adaptive-value("margin-left", 82, 10, 1);
+        @media (max-width: 800px) {
+            & > :not(:last-child) {
+                @include adaptive-value("margin-right", 82, 10, 1);
+            }
         }
     }
 
@@ -70,23 +66,45 @@
 
         @media (max-width: 800px) {
             width: 400px;
-            height: 400px;
+            height: auto;
             flex: 0 0 450px;
         }
 
-        @media (max-width: 425px) {
-            width: 100%;
-            flex: 0 0 100%;
+        @media (max-width: 500px) {
+            width: calc(100% - 10px);
+            flex: 0 0 calc(100% - 10px);
         }
 
         // .horizontal__scroll-slide-body
 
         &-body {
+            &:before {
+                position: absolute;
+                content: "";
+                left: 15px;
+                top: 0;
+                width: calc(100% - 15px);
+                height: 100%;
+
+                background: linear-gradient(155.43deg, rgba(97, 79, 60, 0.42) 8.04%, rgba(97, 79, 60, 0) 53.89%);
+
+                @media (max-width: 800px) {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+
             div {
                 position: absolute;
                 left: 40px;
                 top: 65px;
                 z-index: 1;
+
+                @media (max-width: 800px) {
+                    left: 20px;
+                    top: 35px;
+                    right: 20px;
+                }
 
                 span {
                     display: block;
@@ -97,6 +115,11 @@
                     font-size: 20px;
                     line-height: 118.9%;
                     color: #ffffff;
+
+                    @media (max-width: 800px) {
+                        max-width: 100%;
+                        font-size: 18px;
+                    }
                 }
             }
         }
@@ -109,9 +132,6 @@
             object-fit: cover;
 
             @media (max-width: 800px) {
-                width: 100%;
-            }
-            @media (max-width: 425px) {
                 width: 100%;
             }
         }

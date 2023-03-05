@@ -1,0 +1,141 @@
+.team {
+    padding-top: 72px;
+    // .team__container
+
+    &__container {
+    }
+
+    // .team__body
+
+    &__body {
+        h1 {
+            @include adaptive-value("padding-inline", 82, 10, 1);
+
+            margin-bottom: 51px;
+
+            & > :first-child i {
+                padding-left: 0;
+            }
+
+            & > :last-child i {
+                padding-left: 2ch;
+            }
+        }
+    }
+
+    // .team__director
+
+    &__director {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 149px;
+
+        // .team__director-info
+
+        &-info {
+            margin-bottom: 88px;
+
+            img {
+                display: block;
+            }
+
+            h3 {
+                font-weight: 500;
+                font-size: 36px;
+                line-height: 89.9%;
+                color: #000000;
+                margin: 28px 0;
+            }
+
+            span {
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                color: #000000;
+            }
+        }
+        p {
+            max-width: 1510px;
+            width: 100%;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 29px;
+            text-align: center;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    // .team__personal
+
+    &__personal {
+        position: relative;
+
+        &:not(:last-of-type) {
+            margin-bottom: 100px;
+        }
+
+        h2 {
+            margin-bottom: 83px;
+        }
+
+        // .team__personal-body
+
+        &-body {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0 40px;
+        }
+
+        .column {
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .gallery {
+            & > :not(:last-child) {
+                margin-bottom: 36px;
+            }
+        }
+
+        .column-margin {
+            transform: translate3d(0, 200px, 0);
+            transition: transform 0.05s linear 0s;
+        }
+
+        // .team__personal-item
+
+        &-item {
+        }
+
+        // .team__personal-info
+
+        &-info {
+            padding-left: 10px;
+
+            h3 {
+                font-style: normal;
+                font-weight: 600;
+                font-size: 15.7082px;
+                line-height: 89.9%;
+                text-transform: uppercase;
+                color: #000000;
+                margin: 30px 0 12px 0;
+            }
+
+            span {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13.3579px;
+                line-height: 16px;
+                color: #000000;
+            }
+        }
+    }
+}

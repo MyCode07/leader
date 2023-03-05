@@ -104,17 +104,20 @@ if (burger) {
     })
 }
 
-const submenu = document.querySelector('.submenu');
-const menuList = document.querySelectorAll('.menu__bottom-left ul li');
+const menuList = document.querySelectorAll('.menu-link');
 if (menuList.length) {
     menuList.forEach(link => {
-        link.addEventListener('mouseenter', function (e) {
-            submenu.classList.add('_open')
-        });
 
-        link.addEventListener('mouseleave', function (e) {
-            submenu.classList.remove('_open')
-        });
+        const submenu = link.querySelector('.submenu');
+        if (submenu) {
+            link.addEventListener('mouseenter', function (e) {
+                submenu.classList.add('_open')
+            });
+            link.addEventListener('mouseleave', function (e) {
+                submenu.classList.remove('_open')
+            });
+        }
+
     })
 }
 
