@@ -1,12 +1,11 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
-import { Swiper, Pagination } from "swiper";
+import { Swiper, Pagination} from "swiper";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 const subjects = document.querySelector('.advantages__subjects');
-
 if (subjects) {
     ScrollTrigger.create({
         trigger: subjects,
@@ -137,7 +136,6 @@ if (horizontalScrollSliders.length) {
 }
 
 
-
 const heights = document.querySelectorAll('.height-bg');
 const hiddens = document.querySelectorAll('.hidden');
 heights.forEach((height, i) => {
@@ -169,6 +167,7 @@ heights.forEach((height, i) => {
     });
 
 })
+
 
 let timeline = gsap.timeline();
 function onEnterHeightAnimate(elem) {
@@ -212,3 +211,7 @@ function onLeaveBackHeightAnimate(elem) {
         })
     }
 }
+
+
+
+
