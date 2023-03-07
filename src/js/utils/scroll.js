@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
-import { Swiper, Pagination} from "swiper";
+import { Swiper, Pagination } from "swiper";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,6 +78,7 @@ if (horizontalScrollSliders.length) {
                 },
             })
 
+            const lastTrigger = horizontalScrollSliders[horizontalScrollSliders.length - 1].querySelector('.horizontal__scroll-slides')
             tween.to(slides, {
                 x: -x,
                 ease: "none",
@@ -93,18 +94,20 @@ if (horizontalScrollSliders.length) {
                     //     duration: { min: 0.1, max: 0.1 }
                     // },
                     end: () => "+=" + sliderBody.offsetWidth,
-                    onEnter: () => {
+                    onEnter: (e) => {
                         title.classList.add('_hide')
                     },
                     onLeave: () => {
-                        title.classList.remove('_hide')
+                        if (lastTrigger != sliderBody) {
+                            title.classList.remove('_hide')
+                        }
                     },
                     onEnterBack: () => {
                         title.classList.add('_hide')
                     },
                     onLeaveBack: () => {
                         title.classList.remove('_hide')
-                    },
+                    }
                 }
             });
         }

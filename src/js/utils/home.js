@@ -2,28 +2,36 @@ import { gsap } from "gsap";
 
 import ScrollToPlugin from "gsap/ScrollToPlugin.js";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
+import Observer from "gsap/Observer.js";
 
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, Observer);
 const tl = gsap.timeline()
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+
 
 document.addEventListener('DOMContentLoaded', function (e) {
     const slider = document.querySelector('.home__slider-wrapper');
+    const home = document.querySelector('.home');
     let speed = 1;
     let locked = false;
 
-    if (slider) {
-        if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
-            // document.body.classList.add('_noscroll')
-
-            // problema
+    const homeObserver = new IntersectionObserver(function (entries, observer) {
+        if (entries[0].isIntersecting && window.innerWidth > 800) {
+            document.body.classList.add('_noscroll')
         }
+    }, { threshold: 1 });
 
-        const scrollHeight = slider.scrollHeight - window.innerHeight;
+    if (slider) {
+        homeObserver.observe(home)
+
+
+        const scrollHeight = slider.scrollHeight - window.innerHeight - 24; //! 24 оркуда?
         let delay = 0
         if (window.innerWidth > 800) {
             delay = 0.5
         }
+
 
         tl.to('.home__slider', {
             opacity: 1,
@@ -36,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
                         if (speed < scrollHeight && locked == false) {
                             speed++;
 
-                            slider.style.transform = `translateY(${-speed}px)`;
+                            slider.style.transform = `translate3d(0, ${-speed}px, 0)`;
                         }
                         if (speed == scrollHeight) {
-                            aimationEnd = true
+                            document.body.classList.remove('_noscroll')
                         }
                     }
                     else {
@@ -52,59 +60,74 @@ document.addEventListener('DOMContentLoaded', function (e) {
         })
 
 
+        Observer.create({
+            target: '.home',
+            type: 'wheel,scroll,DOMMouseScroll',
 
-        let aimationEnd = false
-        document.querySelector('.home').addEventListener('wheel', function (e) {
-            const delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+            onChangeY: (self) => {
+                if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
 
-            if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
-                locked = true;
+                    locked = true;
 
-                speed += e.deltaY;
+                    speed += self.deltaY;
 
-                if (speed < 0) {
-                    speed = 0
-                }
-                if (speed > scrollHeight) {
-                    speed = scrollHeight
-
-                    if (delta == -1) {
-                        // document.body.classList.remove('_noscroll')
+                    if (speed < 0) {
+                        speed = 0
                     }
-                    aimationEnd = true
-                }
-                else {
-                    // document.body.classList.add('_noscroll')
-                }
+                    if (speed > scrollHeight) {
+                        speed = scrollHeight
+                    }
 
-                slider.style.transform = `translateY(${-speed}px)`;
+                    let start = speed;
 
-                setTimeout(() => {
-                    locked = false;
-                }, 1000);
+                    slider.style.transform = `translate3d(0, ${-speed}px, 0)`;
+
+                    console.log(start, speed);
+
+                    setTimeout(() => {
+                        if (start == speed) {
+                            locked = false;
+                        }
+                    }, 750);
+                }
             }
-        });
+        })
 
         window.addEventListener('scroll', (e) => {
-            if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
-                // document.body.classList.add('_noscroll')
-            }
+            homeObserver.observe(home)
         })
     }
 })
 
 
+const callback = function (entries, observer) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+            entry.target.timeline.play();
+        }
+        else {
+            //entry.target.timeline.pause(0);
+        }
+    });
+};
 
-tl.to('h1 span i', {
-    height: '1em',
-    duration: 0.5,
-    delay: 0.5,
-    stagger: 0.5
-})
+const options = {
+    threshold: 0.6,
+};
 
-tl.to('h2 span i', {
-    height: '1em',
-    duration: 0.5,
-    delay: 0.5,
-    stagger: 0.5
-})
+const observer = new IntersectionObserver(callback, options);
+const titles = document.querySelectorAll(".title-animate");
+
+titles.forEach(title => {
+    const action = gsap.timeline({ paused: true })
+        .to(title.querySelectorAll('span i'), {
+            height: '1em',
+            duration: 0.5,
+            delay: 0.5,
+            stagger: 0.5
+        })
+
+    title.timeline = action;
+
+    observer.observe(title);
+});

@@ -1,39 +1,80 @@
 import { gsap } from "gsap";
-if (window.innerWidth > 768) {
-    console.log(window.innerWidth);
-    let menuItem = document.querySelectorAll(".contacts__body-bottom ol li");
-    let menuImage = document.querySelectorAll(".contacts__body-bottom ol li img");
+import { isMobile } from './isMobile.js'
 
+if (!isMobile.any()) {
+    let contactItems = document.querySelectorAll(".contacts__bottom ol li");
+    let contactItemsImage = document.querySelectorAll(".contacts__bottom ol li img");
 
-    for (let i = 0; i < menuItem.length; i++) {
-        const element = menuItem[i];
+    if (contactItems.length) {
 
-        const animation = gsap.to(element.querySelector('img'), {
-            opacity: 1,
-            display: 'block',
-            duration: 0.2,
-            ease: "ease-in-out"
-        });
+        contactItems.forEach(item => {
+            const animation = gsap.to(item.querySelector('img'), {
+                opacity: 1,
+                display: 'block',
+                duration: 0.2,
+                ease: "ease-in-out"
+            });
+            animation.reverse();
 
-        animation.reverse();
-        element.addEventListener("mouseenter", () => animation.play());
-        element.addEventListener("mouseleave", () => animation.reverse());
-
-        //   initialization
-
+            item.addEventListener("mouseenter", () => animation.play());
+            item.addEventListener("mouseleave", () => animation.reverse());
+            item.addEventListener("mousemove", moveText);
+        })
     }
-    //   to move image along with cursor
+
     function moveText(e) {
-        gsap.to([...menuImage], {
+        contactItemsImage.forEach(img => {
+            if (e.clientX < window.innerWidth / 2) {
+                img.classList.add('_left')
+            }
+            else {
+                img.classList.remove('_left')
+            }
+        })
+
+        gsap.to([...contactItemsImage], {
             css: {
-                left: e.pageX + 50,
-                top: e.pageY,
+                left: e.clientX - contactItems[0].getBoundingClientRect().width,
+                top: e.clientY,
             },
             duration: 0.3,
         });
     }
+}
 
-    menuItem.forEach((el) => {
-        el.addEventListener("mousemove", moveText);
+
+const callback = function (entries, observer) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+            entry.target.timeline.play();
+        }
+        else {
+            //entry.target.timeline.pause(0);
+        }
+    });
+};
+
+const options = {
+    threshold: 0.6,
+};
+
+const observer = new IntersectionObserver(callback, options);
+const contactsAnimateElements = document.querySelectorAll(".contacts-animate");
+
+if (contactsAnimateElements.length) {
+
+    contactsAnimateElements.forEach(elem => {
+        const action = gsap.timeline({ paused: true })
+            .to(elem, {
+                y: '0',
+                opacity: 1,
+                duration: 0.5,
+                delay: 0.5,
+                stagger: 0.5
+            })
+
+        elem.timeline = action;
+
+        observer.observe(elem);
     });
 }

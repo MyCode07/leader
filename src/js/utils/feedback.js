@@ -1,5 +1,5 @@
 
-import { Swiper, Pagination, Mousewheel } from "swiper";
+import { Swiper, Pagination, Mousewheel, FreeMode } from "swiper";
 
 const feedbackSlides = document.querySelectorAll('.feedback__scroll .swiper-slide');
 const feedbackLeftContent = document.querySelector('.feedback__left-open');
@@ -11,18 +11,20 @@ if (feedbackSlides.length) {
     let swiper = new Swiper('.feedback__scroll .swiper', {
         modules: [
             Mousewheel,
-            Pagination
+            Pagination,
+            FreeMode
         ],
+        freeMode: {
+            enabled: true,
+            sticky: true,
+            momentumBounce: true,
+        },
+        mousewheel: true,
         pagination: {
             el: '.feedback__scroll-pagination',
             clickable: true
         },
         slidesPerView: 'auto',
-        breakpoints: {
-            801: {
-                mousewheel: true,
-            }
-        }
     })
 
     let transform = '';

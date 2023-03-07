@@ -26,7 +26,6 @@
 
         &-slide {
             inset: 0;
-            border: 1px solid #000;
             min-height: 100vh;
 
             position: sticky;
@@ -184,12 +183,10 @@
                 }
             }
 
-            .advantages__subjects-body {
-                &:before,
-                &:after {
-                    opacity: 1;
-                    visibility: visible;
-                }
+            .advantages__subjects-before {
+                position: sticky;
+                opacity: 1;
+                visibility: visible;
             }
         }
 
@@ -294,20 +291,32 @@
 
         &-body {
             position: relative;
+        }
+
+        // .advantages__subjects-before
+
+        &-before {
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            @include adaptive-value("margin-left", -82, -10, 1);
+            z-index: 1;
+            pointer-events: none;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: all 1s ease-in-out 0s;
 
             &:before,
             &:after {
                 position: fixed;
                 content: "";
                 top: 0;
-                width: 100vw;
-                height: 100vh;
-                margin: 0 !important;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
                 display: block;
-
-                opacity: 0;
-                visibility: hidden;
-                transition: all 1s ease-in-out 0s;
             }
 
             &:before {
@@ -343,6 +352,5 @@
     height: 100vh;
 
     &-bg {
-        border: 1px solid #000;
     }
 }
