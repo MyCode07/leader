@@ -24,7 +24,6 @@ if (personalGropus.length) {
     function marginNull(personal, progress) {
         const teamSectionColumns = personal.querySelectorAll('.column-margin');
         teamSectionColumns.forEach(column => {
-            console.log(progress);
             column.style.transform = `translate3d(0, ${progress * 200}px, 0 )`
         })
     }

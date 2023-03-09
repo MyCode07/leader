@@ -194,15 +194,26 @@ footer {
     // .menu__bottom-left
 
     &-left {
-        @include adaptive-value("padding-top", 107, 91, 1);
-        @include adaptive-value("padding-bottom", 267, 20, 1);
+        @include adaptive-value("padding-top", 107, 60, 1);
+        @include adaptive-value("padding-bottom", 107, 60, 1);
         @include adaptive-value("padding-right", 108, 28, 1);
         @include adaptive-value("padding-left", 108, 40, 1);
         width: 100%;
+        overflow-y: auto;
         height: 100vh;
 
-        @media (max-width: 768px) {
-            overflow-y: auto;
+        @media (any-hover: hover) {
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: rgba(242, 239, 230, 0.85);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: linear-gradient(90deg, rgba(72, 58, 41, 0.9) 0%, rgba(85, 69, 50, 0.9) 13.07%);
+            }
         }
 
         @media (max-width: 360px) {
@@ -213,27 +224,26 @@ footer {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            justify-content: flex-start;
-            height: 100vh;
+            justify-content: space-between;
+            height: 100%;
 
-            & > :not(:last-child) {
-                @include adaptive-value("margin-bottom", 98, 82, 1);
-
-                @media (max-width: 360px) {
-                    margin-bottom: 60px;
-                }
+            @media (max-width: 800px) {
+                align-items: flex-start;
             }
 
             li {
                 transition: all 0.3s ease 0s;
                 display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
                 cursor: pointer;
 
-                @media (max-width: 1440px) {
-                    flex-direction: column-reverse;
-                    width: 100%;
+                @media (min-width: 801px) {
+                    width: 465px;
+                    flex-direction: row-reverse;
+                    justify-content: flex-end;
+                }
+
+                @media (max-width: 800px) {
+                    flex-wrap: wrap;
                 }
 
                 @media (any-hover: hover) {
@@ -245,7 +255,6 @@ footer {
                 }
 
                 a {
-                    @include adaptive-value("width", 465, 160, 1);
                     font-weight: 500;
                     @include adaptive-value("font-size", 40, 20, 1);
                     line-height: 89.9%;
@@ -259,31 +268,67 @@ footer {
                     @media (max-width: 360px) {
                         font-size: 16px;
                     }
+
+                    transition: all 0.3s ease 0s;
+                }
+
+                button {
+                    @media (any-hover: hover) {
+                        display: none;
+                    }
+
+                    @media (min-width: 801px) {
+                        margin-right: 15px;
+                    }
+
+                    @media (max-width: 800px) {
+                        margin-left: 10px;
+                    }
+
+                    img {
+                        width: 2em;
+                        transition: all 0.3s ease 0s;
+                    }
+
+                    &._open {
+                        img {
+                            transform: rotate(180deg);
+                        }
+                    }
                 }
 
                 .submenu {
-                    position: fixed;
-                    left: 0;
-                    top: 50%;
-                    transform: translate(-100%, 0);
-                    padding-right: 122px;
-                    top: 0;
-
-                    z-index: -4;
-                    height: auto;
+                    @media (min-width: 801px) {
+                        position: fixed;
+                        left: 0;
+                        top: 50%;
+                        transform: translate(-100%, -50%);
+                        padding-right: 122px;
+                        z-index: -4;
+                    }
 
                     opacity: 0;
                     visibility: hidden;
-                    transition: all 0.3s ease 0s;
+                    height: 0;
+                    overflow: hidden;
 
                     @media (max-width: 1440px) {
                         padding: 45px 0 0 40px;
+                    }
+
+                    @media (max-width: 800px) {
+                        padding: 0 0 0 10px;
+
+                        & > :first-child {
+                            margin-top: 30px;
+                        }
                     }
 
                     &._open {
                         opacity: 1;
                         visibility: visible;
                         z-index: 2;
+                        height: auto;
                     }
 
                     & > :not(:last-child) {
@@ -291,6 +336,7 @@ footer {
                     }
 
                     li {
+                        width: auto;
                         cursor: pointer;
                         position: static;
 
@@ -358,7 +404,7 @@ footer {
 
         @media (max-width: 768px) {
             width: 57px;
-            transition: width 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
             position: absolute;
             right: 0;
             top: 0;
@@ -378,24 +424,36 @@ footer {
         }
 
         ul {
-            @include adaptive-value("padding-top", 196, 96, 1);
-            padding-bottom: 196px;
+            padding-top: 96px;
+            padding-bottom: 96px;
+
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
+            overflow-y: auto;
+            height: 100vh;
+
+            @media (any-hover: hover) {
+                &::-webkit-scrollbar {
+                    width: 10px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: linear-gradient(90deg, rgba(72, 58, 41, 0.9) 0%, rgba(85, 69, 50, 0.9) 13.07%);
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: rgba(242, 239, 230, 0.85);
+                }
+            }
 
             @media (max-width: 768px) {
-                height: 100vh;
-                overflow: hidden;
-                overflow-y: scroll;
-                padding: 91px 20px 91px 23px;
+                padding: 91px 20px 91px 20px;
                 justify-content: flex-start;
             }
 
             & > :not(:last-child) {
-                @include adaptive-value("margin-bottom", 111, 80, 1);
-
                 @media (max-width: 768px) {
                     margin-bottom: 50px;
                 }
@@ -410,6 +468,13 @@ footer {
                     text-align: center;
                     color: #ffffff;
                     opacity: 0.3;
+                    transition: all 0.3s ease 0s;
+
+                    @media (any-hover: hover) {
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
                 }
 
                 @media (max-width: 768px) {

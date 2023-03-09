@@ -35,13 +35,16 @@ if (feedbackSlides.length) {
                 slide.classList.add('_open')
                 feedbackLeftContent.classList.add('_open')
 
+                swiper.mousewheel.disable();
+                swiper.simulateTouch = false
+                swiper.draggable = false
+                swiper.allowTouchMove = false
+                swiper.update();
+                transform = swiperWrapper.style.transform;
+                swiperWrapper.style.transform = `translate3d(0px, 0px, 0px)`;
+
                 if (window.innerWidth <= 800) {
                     pagination.style.display = 'none'
-                }
-                else {
-                    swiper.mousewheel.disable();
-                    transform = swiperWrapper.style.transform;
-                    swiperWrapper.style.transform = `translate3d(0px, 0px, 0px)`;
                 }
 
                 feedbackSlides.forEach(item => {
@@ -64,12 +67,15 @@ if (feedbackSlides.length) {
     backToFeedbacks.addEventListener('click', function () {
         feedbackLeftContent.classList.remove('_open')
 
+        swiper.mousewheel.enable();
+        swiper.simulateTouch = true
+        swiper.draggable = true
+        swiper.allowTouchMove = true
+        swiper.update();
+        swiperWrapper.style.transform = transform;
+
         if (window.innerWidth <= 800) {
             pagination.style.display = 'flex'
-        }
-        else {
-            swiperWrapper.style.transform = transform;
-            swiper.mousewheel.enable();
         }
 
         feedbackSlides.forEach(item => {

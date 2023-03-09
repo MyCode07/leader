@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
                             slider.style.transform = `translate3d(0, ${-speed}px, 0)`;
                         }
                         if (speed == scrollHeight) {
-                            document.body.classList.remove('_noscroll')
                         }
                     }
                     else {
@@ -82,13 +81,16 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
                     slider.style.transform = `translate3d(0, ${-speed}px, 0)`;
 
-                    console.log(start, speed);
 
                     setTimeout(() => {
                         if (start == speed) {
                             locked = false;
                         }
                     }, 750);
+
+                    if (speed == scrollHeight) {
+                        document.body.classList.remove('_noscroll')
+                    }
                 }
             }
         })

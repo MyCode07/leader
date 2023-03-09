@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 let interval = setInterval(() => {
                     if (window.innerWidth > 800) {
                         if (slider.scrollTop < scrollHeight) {
-                            console.log(slider.scrollTop, scrollHeight);
                             slider.scrollTo(0, slider.scrollTop + speed);
                         }
                         else {

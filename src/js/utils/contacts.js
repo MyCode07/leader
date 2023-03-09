@@ -35,7 +35,7 @@ if (!isMobile.any()) {
         gsap.to([...contactItemsImage], {
             css: {
                 left: e.clientX - contactItems[0].getBoundingClientRect().width,
-                top: e.clientY,
+                top: e.clientY / 10,
             },
             duration: 0.3,
         });
@@ -66,15 +66,16 @@ if (contactsAnimateElements.length) {
     contactsAnimateElements.forEach(elem => {
         const action = gsap.timeline({ paused: true })
             .to(elem, {
-                y: '0',
+                y: 0,
+                x: 0,
+                z: 0,
                 opacity: 1,
                 duration: 0.5,
                 delay: 0.5,
-                stagger: 0.5
+                stagger: 0.3
             })
 
         elem.timeline = action;
-
         observer.observe(elem);
     });
 }

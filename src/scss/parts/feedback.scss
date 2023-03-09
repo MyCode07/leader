@@ -226,10 +226,13 @@
             background-color: rgba(227, 191, 149, 0.54);
         }
 
+        img.author {
+            object-fit: cover;
+        }
+
         img.author,
         iframe {
             width: 100%;
-            object-fit: cover;
             object-position: 35%;
             display: block;
             @include adaptive-value("height", 708, 400, 1);

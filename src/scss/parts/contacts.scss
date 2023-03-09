@@ -136,10 +136,10 @@
                     z-index: -1;
                     display: none;
                     @include adaptive-value("width", 368, 150, 1);
-                    transform: translate(50%, -100%);
+                    transform: translate(50%, -50%);
 
                     &._left {
-                        transform: translate(-100%, -100%);
+                        transform: translate(-100%, -50%);
                     }
                 }
             }

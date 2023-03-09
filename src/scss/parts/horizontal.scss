@@ -1,25 +1,35 @@
 .scroll-animate {
     @include adaptive-value("padding-top", 150, 100, 1);
 
-    h2 {
-        position: sticky;
-        top: 72px;
-        @include adaptive-value("padding-inline", 82, 10, 1);
-        transition: all 0.5s ease 0s;
+    // .scroll-animate__title
 
+    &__title {
         &._hide {
             opacity: 0;
             transform: translate(0, -50px);
         }
     }
+
+    h2 {
+        position: sticky;
+        top: 72px;
+        @include adaptive-value("padding-inline", 82, 10, 1);
+        transition: all 0.5s ease 0s;
+    }
 }
 
 .horizontal__scroll {
-    padding-bottom: 112px;
+    @include adaptive-value("padding-bottom", 112, 60, 1);
+
     background-color: #f2efe6;
     overflow: hidden;
+    z-index: 5;
+    position: relative;
 
     @include adaptive-value("padding-left", 82, 10, 1);
+
+    @media (max-width: 800px) {
+    }
 
     p {
         font-style: normal;
@@ -35,7 +45,6 @@
 
     &-continer {
         @media (max-width: 800px) {
-            padding-top: 78px;
         }
     }
 

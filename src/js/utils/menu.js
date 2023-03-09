@@ -1,4 +1,5 @@
 import { gsap, TweenMax } from "gsap";
+import { isMobile } from "./isMobile.js";
 gsap.registerPlugin(TweenMax)
 
 const menu = document.querySelector('.menu__bottom');
@@ -14,13 +15,13 @@ if (burger) {
 
 
         if (burger.classList.contains('_open')) {
-            TweenMax.to('.to-left', {
-                y: 0,
-                x: -305,
-                z: 0,
-                duration: 0.5,
-                ease: 'ease-in-out',
-            })
+            // TweenMax.to('.to-left', {
+            //     y: 0,
+            //     x: -305,
+            //     z: 0,
+            //     duration: 0.5,
+            //     ease: 'ease-in-out',
+            // })
 
             TweenMax.to('.menu__bottom-right', {
                 y: 0,
@@ -53,8 +54,6 @@ if (burger) {
             })
         }
         else {
-
-
             TweenMax.to('.menu__bottom-left li', {
                 y: '100%',
                 x: 0,
@@ -67,14 +66,15 @@ if (burger) {
                 }
             })
 
-            TweenMax.to('.to-left', {
-                y: 0,
-                x: 0,
-                z: 0,
-                duration: 0.5,
-                ease: 'ease-in-out',
-                delay: 0.6,
-            })
+            // TweenMax.to('.to-left', {
+            //     y: 0,
+            //     x: 0,
+            //     z: 0,
+            //     duration: 0.5,
+            //     ease: 'ease-in-out',
+            //     delay: 0.6,
+            // })
+
 
             TweenMax.to('.menu__bottom-right', {
                 y: 0,
@@ -110,12 +110,25 @@ if (menuList.length) {
 
         const submenu = link.querySelector('.submenu');
         if (submenu) {
-            link.addEventListener('mouseenter', function (e) {
-                submenu.classList.add('_open')
-            });
-            link.addEventListener('mouseleave', function (e) {
-                submenu.classList.remove('_open')
-            });
+
+
+            if (isMobile.any()) {
+                link.querySelector('button').addEventListener('click', function (e) {
+                    submenu.classList.toggle('_open')
+                    this.classList.toggle('_open')
+                });
+            }
+            else {
+                let top = link.getBoundingClientRect().top
+                submenu.style.top = window.innerHeight / 2 - top + 'px'
+
+                link.addEventListener('mouseenter', function (e) {
+                    submenu.classList.add('_open')
+                });
+                link.addEventListener('mouseleave', function (e) {
+                    submenu.classList.remove('_open')
+                });
+            }
         }
 
     })
