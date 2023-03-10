@@ -57,6 +57,10 @@ footer {
         &._open {
             background-color: #614f3c;
 
+            @media (max-width: 800px) {
+                bottom: 20px;
+            }
+
             span {
                 &:before {
                     opacity: 0;
@@ -76,7 +80,7 @@ footer {
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
             &._light-background {
                 background-color: #e3bf95;
             }
@@ -194,8 +198,6 @@ footer {
     // .menu__bottom-left
 
     &-left {
-        @include adaptive-value("padding-top", 107, 60, 1);
-        @include adaptive-value("padding-bottom", 107, 60, 1);
         @include adaptive-value("padding-right", 108, 28, 1);
         @include adaptive-value("padding-left", 108, 40, 1);
         width: 100%;
@@ -214,6 +216,16 @@ footer {
             &::-webkit-scrollbar-thumb {
                 background: linear-gradient(90deg, rgba(72, 58, 41, 0.9) 0%, rgba(85, 69, 50, 0.9) 13.07%);
             }
+        }
+
+        @media (min-width: 801px) {
+            @include adaptive-value("padding-top", 107, 60, 1);
+            @include adaptive-value("padding-bottom", 107, 60, 1);
+        }
+
+        @media (max-width: 800px) {
+            padding-top: 91px;
+            padding-bottom: 121px;
         }
 
         @media (max-width: 360px) {
@@ -402,18 +414,21 @@ footer {
             z-index: -1;
         }
 
-        @media (max-width: 768px) {
-            width: 57px;
-            transition: all 0.3s ease 0s;
+        @media (max-width: 800px) {
+            // width: 57px;
             position: absolute;
             right: 0;
             top: 0;
+            width: 281px;
+
+            ul {
+                align-items: flex-start !important;
+            }
 
             &._open {
-                width: 281px;
-
                 ul {
                     justify-content: center;
+                    align-items: center !important;
                 }
 
                 li {
@@ -448,13 +463,13 @@ footer {
                 }
             }
 
-            @media (max-width: 768px) {
+            @media (max-width: 800px) {
                 padding: 91px 20px 91px 20px;
                 justify-content: flex-start;
             }
 
             & > :not(:last-child) {
-                @media (max-width: 768px) {
+                @media (max-width: 800px) {
                     margin-bottom: 50px;
                 }
             }
@@ -477,7 +492,7 @@ footer {
                     }
                 }
 
-                @media (max-width: 768px) {
+                @media (max-width: 800px) {
                     white-space: nowrap;
                     writing-mode: vertical-rl;
                     flex: 1 1 auto;
@@ -498,7 +513,7 @@ footer {
         z-index: -1;
         display: none;
 
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
             display: block;
         }
 

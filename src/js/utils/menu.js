@@ -23,14 +23,27 @@ if (burger) {
             //     ease: 'ease-in-out',
             // })
 
-            TweenMax.to('.menu__bottom-right', {
-                y: 0,
-                x: 0,
-                z: 0,
-                duration: 0.5,
-                delay: 0.2,
-                ease: 'ease-in-out',
-            })
+            if (window.innerWidth > 800) {
+                TweenMax.to('.menu__bottom-right', {
+                    y: 0,
+                    x: 0,
+                    z: 0,
+                    duration: 0.5,
+                    delay: 0.2,
+                    ease: 'ease-in-out',
+                })
+            }
+            else {
+                let width = document.querySelector('.menu__bottom-right').getBoundingClientRect().width;
+                TweenMax.to('.menu__bottom-right', {
+                    y: 0,
+                    x: width - 57,
+                    z: 0,
+                    duration: 0.5,
+                    delay: 0.2,
+                    ease: 'ease-in-out',
+                })
+            }
 
             TweenMax.to('.menu__bottom', {
                 opacity: 1,
@@ -142,7 +155,35 @@ if (rightBurger) {
     rightBurger.addEventListener('click', () => {
         burger.classList.toggle('_light-background')
         rightBurger.classList.toggle('_open')
-        rightMenu.classList.toggle('_open')
+
+      
+
+        if (window.innerWidth < 800) {
+            if (rightBurger.classList.contains('_open')) {
+                TweenMax.to('.menu__bottom-right', {
+                    y: 0,
+                    x: 0,
+                    z: 0,
+                    duration: 0.5,
+                    delay: 0.2,
+                    ease: 'ease-in-out',
+                    onStart: () => rightMenu.classList.add('_open')
+                })
+            }
+            else {
+                let width = document.querySelector('.menu__bottom-right').getBoundingClientRect().width;
+                TweenMax.to('.menu__bottom-right', {
+                    y: 0,
+                    x: width - 57,
+                    z: 0,
+                    duration: 0.5,
+                    ease: 'ease-in-out',
+                    delay: 0.3,
+                    onComplete: () => rightMenu.classList.remove('_open')
+
+                })
+            }
+        }
     })
 }
 

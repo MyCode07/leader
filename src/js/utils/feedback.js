@@ -39,7 +39,6 @@ if (feedbackSlides.length) {
                 swiper.simulateTouch = false
                 swiper.draggable = false
                 swiper.allowTouchMove = false
-                swiper.update();
                 transform = swiperWrapper.style.transform;
                 swiperWrapper.style.transform = `translate3d(0px, 0px, 0px)`;
 
@@ -71,7 +70,6 @@ if (feedbackSlides.length) {
         swiper.simulateTouch = true
         swiper.draggable = true
         swiper.allowTouchMove = true
-        swiper.update();
         swiperWrapper.style.transform = transform;
 
         if (window.innerWidth <= 800) {

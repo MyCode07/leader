@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 
         Observer.create({
-            target: '.home',
+            target: window,
             type: 'wheel,scroll,DOMMouseScroll',
 
             onChangeY: (self) => {
-                if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
 
+                if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
                     locked = true;
 
                     speed += self.deltaY;
@@ -94,6 +94,42 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 }
             }
         })
+
+        // Observer.create({
+        //     target: '.home',
+        //     type: 'wheel,scroll,DOMMouseScroll',
+
+        //     onChangeY: (self) => {
+
+        //         if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
+        //             locked = true;
+
+        //             speed += self.deltaY;
+
+        //             if (speed < 0) {
+        //                 speed = 0
+        //             }
+        //             if (speed > scrollHeight) {
+        //                 speed = scrollHeight
+        //             }
+
+        //             let start = speed;
+
+        //             slider.style.transform = `translate3d(0, ${-speed}px, 0)`;
+
+
+        //             setTimeout(() => {
+        //                 if (start == speed) {
+        //                     locked = false;
+        //                 }
+        //             }, 750);
+
+        //             if (speed == scrollHeight) {
+        //                 document.body.classList.remove('_noscroll')
+        //             }
+        //         }
+        //     }
+        // })
 
         window.addEventListener('scroll', (e) => {
             homeObserver.observe(home)

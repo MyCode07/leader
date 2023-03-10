@@ -1,6 +1,11 @@
 .scroll-animate__about {
     .horizontal__scroll {
         padding-bottom: 0 !important;
+        background-color: transparent;
+
+        &-continer {
+            background-color: #f2efe6;
+        }
 
         .swiper-slide-active {
             .horizontal__scroll-slide-body div {
@@ -145,11 +150,6 @@
     &__images {
         min-height: 100vh;
         position: relative;
-        transition: all 1s ease 0s;
-
-        &._active {
-            transform: translate(0, -100%);
-        }
 
         img {
             position: absolute;
@@ -227,20 +227,6 @@
             position: sticky;
             inset: 0px;
             height: 100vh;
-        }
-
-        &._active {
-            .about__text-animate {
-                opacity: 1;
-                transform: translate(0, 0);
-            }
-        }
-
-        &._hide {
-            .about__text-animate {
-                opacity: 0;
-                transform: translate(0, -50px);
-            }
         }
 
         // .about__text-body
@@ -342,11 +328,8 @@
         // .about__text-animate
 
         &-animate {
-            @media (min-width: 801px) {
-                transition: all 0.5s ease 0s;
-                opacity: 0;
-                transform: translate(0, 50px);
-            }
+            opacity: 0;
+            transform: translate(0, 50px);
         }
     }
 
@@ -355,23 +338,4 @@
             min-height: 100vh;
         }
     }
-}
-
-.enter {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    padding: 15px;
-    background-color: #fff;
-    color: #000000;
-    font-size: 20px;
-    z-index: 100;
-    width: 50%;
-    text-align: center;
-    opacity: 0;
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    visibility: hidden;
-    pointer-events: none;
 }

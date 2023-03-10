@@ -1,5 +1,6 @@
 .feedback {
     overflow: hidden;
+    position: relative;
 
     @include adaptive-value("padding-top", 153, 50, 1);
     @include adaptive-value("padding-left", 82, 10, 1);
@@ -18,7 +19,8 @@
     &__body {
         h2 {
             @media (max-width: 800px) {
-                margin-bottom: 50px;
+                position: absolute;
+                top: 0;
             }
         }
     }
@@ -26,8 +28,11 @@
     // .feedback__flex
 
     &__flex {
-        @media (min-width: 801px) {
-            display: flex;
+        display: flex;
+
+        @media (max-width: 800px) {
+            padding-top: 50px;
+            flex-direction: column-reverse;
         }
     }
 

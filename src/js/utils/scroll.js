@@ -253,54 +253,73 @@ if (aboutSection) {
         });
     }
 
-    animatedBlocks.forEach(block => {
+    let timeline = gsap.timeline();
 
-        ScrollTrigger.create({
-            trigger: block,
-            start: "top top",
-            end: "bottom",
-            scrub: 1,
-            // snap: {
-            //     snapTo: 1.5,
-            //     duration: 0.2,
-            //     ease: "none"
-            // },
+    ScrollTrigger.create({
+        trigger: '.about__body',
+        start: "top top",
+        end: "bottom",
+        scrub: 1,
 
-            onEnter: () => {
-                title.classList.add('_active')
-
-                block.classList.add('_active')
-                document.querySelector('.enter').innerHTML = 'onEnter';
-            },
-            onLeave: () => {
-                block.classList.add('_hide')
-                block.classList.remove('_active')
-
-                if (animatedBlocks[animatedBlocks.length - 1] == block && window.innerWidth <= 800) {
-                    title.classList.add('_hide')
+        onEnter: () => {
+            title.classList.add('_active')
+            gsap.to('.about__images', {
+                y: '-100%',
+                duration: 1,
+                onComplete: () => {
+                    gsap.to('.about__text-animate', {
+                        y: 0,
+                        opacity: 1,
+                        stagger: 0.2,
+                        duration: 0.5
+                    })
                 }
-                document.querySelector('.enter').innerHTML = 'onLeave';
+            })
 
-            },
-            onEnterBack: () => {
-                block.classList.add('_active')
-                block.classList.remove('_hide')
+        },
+        onLeave: () => {
+            if (window.innerWidth <= 800) {
+                title.classList.add('_hide')
+            }
 
-                if (animatedBlocks[animatedBlocks.length - 1] == block && window.innerWidth <= 800) {
-                    title.classList.remove('_hide')
-                }
-                document.querySelector('.enter').innerHTML = 'onEnterBack';
+            gsap
+                .to('.about__text-animate', {
+                    y: -50,
+                    opacity: 0,
+                    stagger: 0.2,
+                    duration: 0.5,
+                })
+        },
+        onEnterBack: () => {
 
-            },
-            onLeaveBack: () => {
-                block.classList.remove('_active')
-                if (animatedBlocks[0] == block) {
-                    title.classList.remove('_active')
-                }
-                document.querySelector('.enter').innerHTML = 'onLeaveBack';
+            gsap
+                .to('.about__text-animate', {
+                    y: 0,
+                    opacity: 1,
+                    stagger: 0.2,
+                    duration: 0.5
+                })
 
-            },
 
-        });
-    })
+            if (window.innerWidth <= 800) {
+                title.classList.remove('_hide')
+            }
+        },
+        onLeaveBack: () => {
+            gsap
+                .to('.about__text-animate', {
+                    y: 50,
+                    opacity: 0,
+                    stagger: 0.2,
+                    duration: 0.5,
+
+                })
+            gsap.to('.about__images', {
+                y: 0,
+                duration: 1,
+
+            })
+            title.classList.remove('_active')
+        },
+    });
 }
