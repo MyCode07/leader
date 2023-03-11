@@ -47,7 +47,7 @@ if (burger) {
 
             TweenMax.to('.menu__bottom', {
                 opacity: 1,
-                visibility: 'visible',
+                pointerEvents: 'all',
                 duration: 0.5,
                 ease: 'ease-in-out',
                 delay: 0.2
@@ -101,7 +101,7 @@ if (burger) {
 
             TweenMax.to('.menu__bottom', {
                 opacity: 0,
-                visibility: 'hidden',
+                pointerEvents: 'none',
                 duration: 0.5,
                 ease: 'ease-in-out',
                 delay: 0.6,

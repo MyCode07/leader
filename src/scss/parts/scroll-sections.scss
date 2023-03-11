@@ -24,10 +24,7 @@
         // .section__scroll-slide
 
         &-slide {
-            inset: 0;
             min-height: 100vh;
-
-            inset: 0px;
             height: 100%;
             max-height: 100vh;
 
@@ -84,9 +81,11 @@
                 &.height-animate {
                     transition: all 0.7s ease 0s;
 
-                    span {
-                        height: 1.25em;
+                    h4 {
+                        height: 3.75ch;
+                    }
 
+                    span {
                         &:last-of-type i {
                             transition-delay: 0.3s;
                         }
@@ -382,4 +381,16 @@
 
     @media (max-width: 800px) {
     }
+}
+
+.height50 {
+    height: 50vh;
+}
+
+.hidden {
+    isolation: isolate;
+}
+
+.section__scroll-slide {
+    transform: unset !important;
 }
