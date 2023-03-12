@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
 import { Swiper, Pagination } from "swiper";
+import { closeOpenMenu } from "./menu.js";
+import { scrollToElementRef } from "./scrollintovew.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,18 +30,25 @@ function createVerticalScrollAnimation(section) {
                     if (section.closest('.section__scroll').nextElementSibling) {
                         const next = section.closest('.section__scroll').nextElementSibling;
                         if (!next.classList.contains('horizontal__scroll')) {
-                            gsap.to(window, {
-                                scrollTo: { y: `+=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
-                                duration: 1
-                            });
+                            if (unsetScrolltrigger == false) {
+
+                                gsap.to(window, {
+                                    scrollTo: { y: `+=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
+                                    duration: 1
+                                });
+                            }
                         }
                     }
                 }
                 else {
-                    gsap.to(window, {
-                        scrollTo: { y: `+=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
-                        duration: 1
-                    });
+                    if (unsetScrolltrigger == false) {
+
+                        gsap.to(window, {
+                            scrollTo: { y: `+=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
+                            duration: 1
+                        });
+                        console.log(unsetScrolltrigger);
+                    }
                 }
 
 
@@ -55,18 +64,24 @@ function createVerticalScrollAnimation(section) {
                     if (section.closest('.section__scroll').previousElementSibling) {
                         const prev = section.closest('.section__scroll').previousElementSibling;
                         if (!prev.classList.contains('horizontal__scroll')) {
-                            gsap.to(window, {
-                                scrollTo: { y: `-=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
-                                duration: 1
-                            });
+                            if (unsetScrolltrigger == false) {
+                                gsap.to(window, {
+                                    scrollTo: { y: `-=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
+                                    duration: 1
+                                });
+                            }
                         }
                     }
                 }
                 else {
-                    gsap.to(window, {
-                        scrollTo: { y: `-=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
-                        duration: 1
-                    });
+                    if (unsetScrolltrigger == false) {
+                        gsap.to(window, {
+                            scrollTo: { y: `-=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
+                            duration: 1
+                        });
+                    }
+
+                    console.log(unsetScrolltrigger);
                 }
             },
         });
@@ -373,3 +388,49 @@ createHorizontalScrollAnimation(document.querySelectorAll('.horizontal__scroll#h
 
 
 ScrollTrigger.normalizeScroll();
+
+let unsetScrolltrigger = false;
+const homeScrolLinks = document.querySelectorAll('a[data-href]');
+if (homeScrolLinks.length) {
+    homeScrolLinks.forEach(link => {
+        const section = document.querySelector(`#${link.dataset.href}`);
+        link.addEventListener('click', function (e) {
+            unsetScrolltrigger = true;
+            // e.preventDefault();
+            // ScrollTrigger.refresh()
+            // section.scrollIntoView()
+            // ScrollTrigger.refresh()
+            closeOpenMenu();
+
+            ScrollTrigger.refresh()
+            scrollToElementRef(
+                window,
+                section,
+                {
+                    behavior: 'smooth',
+                    block: 'start',
+                    inline: 'nearest',
+                }
+            ).then(() => {
+                ScrollTrigger.refresh()
+                unsetScrolltrigger = false;
+            });
+        })
+    })
+}
+
+ 
+
+// ScrollTrigger.disable()
+// scrollToElementRef(
+//     window,
+//     section,
+//     {
+//         behavior: 'smooth',
+//         block: 'start',
+//         inline: 'nearest',
+//     }
+// ).then(() => {
+//     ScrollTrigger.enable()
+//     ScrollTrigger.normalizeScroll();
+// });

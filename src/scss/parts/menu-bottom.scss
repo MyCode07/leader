@@ -244,9 +244,9 @@ footer {
             }
 
             li {
-                transition: all 0.3s ease 0s;
                 display: flex;
                 cursor: pointer;
+                transition: all 0.3s ease 0s;
 
                 @media (min-width: 801px) {
                     width: 465px;
@@ -274,7 +274,6 @@ footer {
                     text-transform: uppercase;
                     color: #614f3c;
                     opacity: 0.4;
-                    pointer-events: none;
                     white-space: nowrap;
 
                     @media (max-width: 360px) {
@@ -314,14 +313,15 @@ footer {
                         position: fixed;
                         left: 0;
                         top: 50%;
-                        transform: translate(-100%, -50%);
-                        padding-right: 122px;
+                        transform: translate(calc(-100% + 22px), -50%);
+                        padding-right: 144px;
+                        padding-top: 100px;
+                        padding-bottom: 100px;
                         z-index: -4;
                     }
 
-                    opacity: 0;
-                    visibility: hidden;
-                    height: 0;
+                    height: auto;
+                    pointer-events: none;
                     overflow: hidden;
 
                     @media (max-width: 1440px) {
@@ -330,6 +330,7 @@ footer {
 
                     @media (max-width: 800px) {
                         padding: 0 0 0 10px;
+                        height: 0;
 
                         & > :first-child {
                             margin-top: 30px;
@@ -337,10 +338,11 @@ footer {
                     }
 
                     &._open {
-                        opacity: 1;
-                        visibility: visible;
-                        z-index: 2;
-                        height: auto;
+                        pointer-events: all;
+
+                        @media (max-width:800px){
+                            height: auto;
+                        }
                     }
 
                     & > :not(:last-child) {
@@ -351,6 +353,9 @@ footer {
                         width: auto;
                         cursor: pointer;
                         position: static;
+                        transform: translate(0, 50px);
+                        opacity: 0;
+                        transition: none;
 
                         @media (any-hover: hover) {
                             &:hover {

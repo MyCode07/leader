@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         homeObserver.observe(home)
 
 
-        const scrollHeight = slider.scrollHeight - window.innerHeight - 24; //! 24 оркуда?
+        const scrollHeight = slider.scrollHeight - window.innerHeight;
         let delay = 0
         if (window.innerWidth > 800) {
             delay = 0.5
@@ -162,7 +162,28 @@ titles.forEach(title => {
             height: '1em',
             duration: 0.5,
             delay: 0.5,
-            stagger: 0.5
+            stagger: 0.5,
+            onComplete: () => {
+                if (title.closest('.loader')) {
+                    gsap.to('.loader', {
+                        opacity: 0,
+                        duration: 0.75,
+                        onComplete: () => {
+                            gsap.to('.header', {
+                                opacity: 1,
+                                duration: 0.3,
+                            })
+                            document.querySelector('.loader').remove()
+                        }
+                    })
+                }
+                else {
+                    gsap.to('.header', {
+                        opacity: 1,
+                        duration: 0.75,
+                    })
+                }
+            }
         })
 
     title.timeline = action;

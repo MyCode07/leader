@@ -141,15 +141,18 @@
             cursor: pointer;
             overflow: hidden;
 
-            @media (any-hover: hover) {
-                &:hover {
-                    max-width: 400px;
+            &:not(._open) {
+                @media (any-hover: hover) {
+                    &:hover {
+                        max-width: 400px;
+                    }
                 }
             }
 
             &._open {
                 max-width: 90%;
                 transform-origin: center;
+                box-shadow: 0px 0px 8px 2px #e3bf95;
 
                 @media (max-width: 800px) {
                     max-width: 100%;
