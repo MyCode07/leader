@@ -127,8 +127,40 @@ if (menuList.length) {
 
             if (isMobile.any()) {
                 link.querySelector('button').addEventListener('click', function (e) {
-                    submenu.classList.toggle('_open')
-                    this.classList.toggle('_open')
+
+
+
+
+                    if (!this.hasAttribute('data-open')) {
+
+                        if (document.querySelector('.menu-link button[data-open]')) {
+                            document.querySelector('.menu-link button[data-open]').classList.remove('_open')
+                            document.querySelector('.menu-link').nextElementSibling.classList.remove('_open')
+
+                            document.querySelector('.menu-link button[data-open]').removeAttribute('data-open')
+                        }
+
+                        menuList.forEach(item => {
+                            if (item.querySelector('.submenu')) {
+                                item.querySelector('.submenu').classList.remove('_open')
+                            }
+                            if (item.querySelector('button')) {
+                                item.querySelector('button').classList.remove('_open')
+                            }
+                        })
+
+                        submenu.classList.add('_open')
+                        this.classList.add('_open')
+
+                        this.setAttribute('data-open', 'open')
+                    }
+                    else {
+                        submenu.classList.remove('_open')
+                        this.classList.remove('_open')
+
+                        this.removeAttribute('data-open')
+                    }
+
                 });
             }
             else {

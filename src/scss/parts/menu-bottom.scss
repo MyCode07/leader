@@ -299,6 +299,7 @@ footer {
                     img {
                         width: 2em;
                         transition: all 0.3s ease 0s;
+                        pointer-events: none;
                     }
 
                     &._open {
@@ -340,8 +341,13 @@ footer {
                     &._open {
                         pointer-events: all;
 
-                        @media (max-width:800px){
+                        @media (max-width: 800px) {
                             height: auto;
+
+                            li {
+                                transform: translate(0, 0);
+                                opacity: 1;
+                            }
                         }
                     }
 
@@ -356,6 +362,10 @@ footer {
                         transform: translate(0, 50px);
                         opacity: 0;
                         transition: none;
+
+                        @media (max-width: 800px) {
+                            transition: all 0.3s ease 0s;
+                        }
 
                         @media (any-hover: hover) {
                             &:hover {

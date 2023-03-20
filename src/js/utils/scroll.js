@@ -9,6 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 // анимации блоков должныбыть запущены поочередно иначер подсчет высоты для пин элемента будет неверный
 
 function createVerticalScrollAnimation(section) {
+    let scrollduration = 1;
+    if (window.innerWidth <= 800) {
+        scrollduration = 0.5;
+    }
+
     if (section) {
         const hidden = section.querySelector('.hidden');
 
@@ -34,7 +39,7 @@ function createVerticalScrollAnimation(section) {
 
                                 gsap.to(window, {
                                     scrollTo: { y: `+=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
-                                    duration: 1
+                                    duration: scrollduration
                                 });
                             }
                         }
@@ -45,7 +50,7 @@ function createVerticalScrollAnimation(section) {
 
                         gsap.to(window, {
                             scrollTo: { y: `+=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
-                            duration: 1
+                            duration: scrollduration
                         });
                         console.log(unsetScrolltrigger);
                     }
@@ -67,7 +72,7 @@ function createVerticalScrollAnimation(section) {
                             if (unsetScrolltrigger == false) {
                                 gsap.to(window, {
                                     scrollTo: { y: `-=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
-                                    duration: 1
+                                    duration: scrollduration
                                 });
                             }
                         }
@@ -77,7 +82,7 @@ function createVerticalScrollAnimation(section) {
                     if (unsetScrolltrigger == false) {
                         gsap.to(window, {
                             scrollTo: { y: `-=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
-                            duration: 1
+                            duration: scrollduration
                         });
                     }
 
@@ -396,6 +401,11 @@ if (homeScrolLinks.length) {
         const section = document.querySelector(`#${link.dataset.href}`);
         link.addEventListener('click', function (e) {
             unsetScrolltrigger = true;
+            
+            if (document.body.classList.contains('_noscroll')) {
+                document.body.classList.remove('_noscroll')
+            }
+
             // e.preventDefault();
             // ScrollTrigger.refresh()
             // section.scrollIntoView()
@@ -419,7 +429,7 @@ if (homeScrolLinks.length) {
     })
 }
 
- 
+
 
 // ScrollTrigger.disable()
 // scrollToElementRef(
