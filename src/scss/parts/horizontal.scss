@@ -1,0 +1,208 @@
+.scroll-animate {
+    @include adaptive-value("padding-top", 150, 100, 1);
+
+    // .scroll-animate__title
+
+    &__title {
+        &._hide {
+            opacity: 0;
+            transform: translate(0, -50px);
+        }
+    }
+
+    h2 {
+        position: sticky;
+        top: 72px;
+        @include adaptive-value("padding-inline", 82, 10, 1);
+        transition: all 0.5s ease 0s;
+    }
+}
+
+.horizontal__scroll {
+    @include adaptive-value("padding-bottom", 112, 60, 1);
+
+    background-color: #f2efe6;
+    overflow: hidden;
+    z-index: 5;
+    position: relative;
+
+    @include adaptive-value("padding-left", 82, 10, 1);
+
+    @media (max-width: 800px) {
+    }
+
+    p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 89.9%;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 54px;
+    }
+
+    // .horizontal__scroll-continer
+
+    &-continer {
+        @media (max-width: 800px) {
+        }
+    }
+
+    &-slides {
+        position: relative;
+        display: flex;
+
+        @media (max-width: 800px) {
+            & > :not(:last-child) {
+                @include adaptive-value("margin-right", 82, 10, 1);
+            }
+        }
+    }
+
+    // .horizontal__scroll-slide
+
+    &-slide {
+        position: relative;
+        width: calc(854px + 15px);
+        height: 854px;
+        flex: 0 0 calc(854px + 15px);
+
+        @media (max-width: 1024px) {
+            width: calc(450px + 15px);
+            height: 450px;
+            flex: 0 0 calc(450px + 15px);
+        }
+
+        @media (max-width: 800px) {
+            width: 400px;
+            height: auto;
+            flex: 0 0 450px;
+        }
+
+        @media (max-width: 500px) {
+            width: calc(100% - 10px);
+            flex: 0 0 calc(100% - 10px);
+        }
+
+        // .horizontal__scroll-slide-body
+
+        &-body {
+            &:before {
+                position: absolute;
+                content: "";
+                left: 15px;
+                top: 0;
+                width: calc(100% - 15px);
+                height: 100%;
+
+                background: linear-gradient(155.43deg, rgba(97, 79, 60, 0.42) 8.04%, rgba(97, 79, 60, 0) 53.89%);
+
+                @media (max-width: 800px) {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+
+            div {
+                position: absolute;
+                left: 65px;
+                top: 60px;
+                z-index: 1;
+
+                @media (max-width: 800px) {
+                    left: 20px;
+                    top: 20px;
+                    right: 20px;
+                }
+
+                span {
+                    display: block;
+                    max-width: 438px;
+                    width: 100%;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 118.9%;
+                    color: #ffffff;
+
+                    @media (max-width: 800px) {
+                        max-width: 100%;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            width: calc(100% - 15px);
+            height: 100%;
+            object-fit: cover;
+
+            @media (max-width: 800px) {
+                width: 100%;
+            }
+        }
+    }
+
+    // .horizontal__scroll-pagination
+
+    &-pagination {
+        display: none;
+
+        @media (max-width: 800px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 25px;
+
+            & > :not(:last-child) {
+                margin-right: 10px;
+            }
+
+            span {
+                transition: all 0.3s ease 0s;
+                width: 12px;
+                height: 12px;
+                flex: 0 0 12px;
+                border-radius: 100%;
+                border: 1px solid #ffffff;
+                background: transparent;
+
+                &.swiper-pagination-bullet-active {
+                    background: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+._pagination {
+    display: none;
+
+    @media (max-width: 800px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 25px;
+
+        & > :not(:last-child) {
+            margin-right: 10px;
+        }
+
+        span {
+            transition: all 0.3s ease 0s;
+            width: 12px;
+            height: 12px;
+            flex: 0 0 12px;
+            border-radius: 100%;
+            border: 1px solid #ffffff;
+            background: transparent;
+
+            &.swiper-pagination-bullet-active {
+                background: #ffffff;
+            }
+        }
+    }
+}

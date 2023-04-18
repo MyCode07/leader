@@ -1,0 +1,106 @@
+html,
+body {
+    scroll-behavior: smooth;
+    font-family: MontserratAlternates;
+    font-style: normal;
+    height: 100%;
+}
+
+body {
+    background: #f2efe6;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+
+    &._noscroll {
+        overflow: hidden;
+    }
+
+    &::-webkit-scrollbar {
+        // display: none;
+    }
+}
+
+section {
+    min-height: 100vh;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+    z-index: 2;
+    font-weight: 500;
+    line-height: 89.9%;
+    color: #000000;
+
+    // 800 74
+    // 390 42
+
+    height: 3ch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    & > :first-child {
+        i {
+            padding-left: 1ch;
+        }
+    }
+
+    span {
+        display: block;
+        overflow: hidden;
+    }
+
+    i {
+        font-style: normal;
+        height: 0;
+        display: block;
+        transform-origin: bottom;
+    }
+}
+
+h1 {
+    @include adaptive-value("font-size", 80, 42, 1);
+}
+
+h2 {
+    @include adaptive-value("font-size", 80, 38, 1);
+
+    @media (max-width: 375px) {
+        font-size: 34px;
+    }
+
+    @media (max-width: 340px) {
+        font-size: 30px;
+    }
+}
+
+._container {
+    width: 100%;
+}
+
+._underline {
+    position: relative;
+
+    @media (any-hover: hover) {
+        &:hover {
+            &:before {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: -3px;
+        height: 1px;
+        background-color: currentColor;
+
+        width: 100%;
+        max-width: 0;
+        transition: all 0.3s ease 0s;
+    }
+}

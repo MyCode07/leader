@@ -1,0 +1,341 @@
+.scroll-animate__about {
+    .horizontal__scroll {
+        padding-bottom: 0 !important;
+        background-color: transparent;
+
+        &-continer {
+            background-color: #f2efe6;
+        }
+
+        .swiper-slide-active {
+            .horizontal__scroll-slide-body div {
+                opacity: 1;
+            }
+        }
+
+        &-slide {
+            @media (any-hover: hover) {
+                &:hover {
+                    .horizontal__scroll-slide-body div {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &-body div {
+                left: 27px;
+                top: 81px;
+                max-width: 438px;
+                opacity: 0;
+                transition: all 0.3s ease 0s;
+
+                @media (max-width: 768px) {
+                    top: 40px;
+                    left: 18px;
+                }
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        .horizontal__scroll-slide-body div {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            h5 {
+                font-weight: 600;
+                line-height: 100.4%;
+                color: #ffffff;
+                margin-bottom: 20px;
+                @include adaptive-value("font-size", 75, 30, 1);
+            }
+            p {
+                font-weight: 500;
+                line-height: 118.9%;
+                color: #ffffff;
+                text-align: left;
+                @include adaptive-value("font-size", 20, 16, 1);
+            }
+        }
+
+        @media (max-width: 800px) {
+        }
+    }
+
+    .about__scroll-title {
+        @include adaptive-value("font-size", 24, 18, 1);
+
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 500;
+        line-height: 89.9%;
+        text-align: center;
+        color: #000000;
+        @include adaptive-value("padding-right", 82, 10, 1);
+
+        @media (min-width: 801px) {
+            @include adaptive-value("margin-top", 89, 50, 1);
+            margin-bottom: 54px;
+        }
+
+        @media (max-width: 800px) {
+            margin-bottom: 30px;
+            margin-top: 130px;
+        }
+    }
+
+    .height {
+        @media (max-width: 800px) {
+            height: 100px;
+        }
+    }
+}
+
+.about {
+    overflow: hidden;
+
+    .to-left {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+    }
+
+    h1 {
+        @include adaptive-value("padding-inline", 82, 10, 1);
+        height: 1em;
+        text-align: center;
+        transition: all 1s ease-in-out 0s;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 0);
+        top: 77.5%;
+        width: 100%;
+
+        &._active {
+            top: 28.1%;
+
+            @media (max-width: 1200px) {
+                top: 20%;
+            }
+
+            @media (max-width: 1024px) {
+                top: 15%;
+            }
+        }
+
+        i {
+            padding-left: 0;
+        }
+
+        &._hide {
+            opacity: 0;
+            transform: translate(-50%, -50px);
+        }
+    }
+
+    // .about__container
+
+    &__container {
+    }
+
+    // .about__body
+
+    &__body {
+    }
+
+    // .about__images
+
+    &__images {
+        min-height: 100vh;
+        position: relative;
+
+        img {
+            position: absolute;
+            display: block;
+            opacity: 0;
+
+            @media (min-width: 801px) {
+                &#about-1 {
+                    left: 0;
+                    top: -19%;
+                    width: 19%;
+                }
+                &#about-2 {
+                    bottom: 13%;
+                    left: 4.2%;
+                    width: 14.8%;
+                }
+                &#about-3 {
+                    top: 25.8%;
+                    right: 25.5%;
+                    width: 10.5%;
+                }
+                &#about-4 {
+                    top: 3.8%;
+                    left: 31.9%;
+                    width: 19.1%;
+                }
+                &#about-5 {
+                    top: -16.2%;
+                    right: 12.7%;
+                    width: 10.5%;
+                }
+                &#about-6 {
+                    right: 0;
+                    bottom: 18.3%;
+                    width: 16.9%;
+                }
+            }
+
+            @media (max-width: 800px) {
+                max-width: 30%;
+
+                &#about-1 {
+                    left: 0;
+                    top: 0;
+                }
+                &#about-2 {
+                    bottom: 0;
+                    left: 0;
+                }
+                &#about-3 {
+                    top: 30%;
+                    right: 10%;
+                }
+                &#about-4 {
+                    top: 50%;
+                    left: 10%;
+                }
+                &#about-5 {
+                    top: 0;
+                    right: 0;
+                }
+                &#about-6 {
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+
+    // .about__text
+
+    &__text {
+        @media (min-width: 801px) {
+            position: sticky;
+            inset: 0px;
+            height: 100vh;
+        }
+
+        // .about__text-body
+
+        &-body {
+            @media (min-width: 801px) {
+                position: sticky;
+                inset: 0px;
+                height: 100vh;
+            }
+        }
+
+        // .about__text-content
+
+        &-content {
+            width: 100%;
+
+            @include adaptive-value("padding-inline", 82, 10, 1);
+
+            @media (min-width: 801px) {
+                position: fixed;
+                top: 40%;
+
+                @media (max-width: 1200px) {
+                    top: 20%;
+                }
+            }
+        }
+
+        h3 {
+            @include adaptive-value("margin-top", 89, 50, 1);
+            @include adaptive-value("font-size", 24, 18, 1);
+            margin-bottom: 26px;
+
+            font-weight: 500;
+            line-height: 89.9%;
+            text-align: center;
+            color: #000000;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        p {
+            @include adaptive-value("margin-bottom", 96, 60, 1);
+            font-weight: 400;
+            @include adaptive-value("font-size", 24, 18, 1);
+            line-height: 1.2;
+            text-align: center;
+            color: #000000;
+
+            max-width: 1500px;
+            margin-inline: auto;
+        }
+
+        ol {
+            @media (min-width: 801px) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px 46px;
+                max-width: 1441px;
+                margin-inline: auto;
+                list-style: initial;
+
+                & > :nth-child(2n) {
+                    text-align: left;
+                }
+            }
+
+            @media (max-width: 800px) {
+                & > :not(:last-child) {
+                    margin-bottom: 30px;
+                }
+            }
+
+            li {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 1.25;
+                text-align: right;
+                color: #000000;
+                width: fit-content;
+
+                @media (max-width: 800px) {
+                    text-align: left;
+                }
+
+                &:before {
+                    font-weight: 700;
+                    content: ".";
+                    font-size: 1.25em;
+                    height: 0.5em;
+                    margin-right: 0.5em;
+                    color: #000000;
+                }
+            }
+        }
+
+        // .about__text-animate
+
+        &-animate {
+            opacity: 0;
+            transform: translate(0, 50px);
+        }
+    }
+
+    .about-animate {
+        @media (min-width: 801px) {
+            min-height: 100vh;
+        }
+    }
+}

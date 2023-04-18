@@ -1,0 +1,47 @@
+// null default styles
+@import "null";
+
+// load fonts
+@import "fonts";
+
+// load mixins
+@import "mixins";
+
+// load swiper
+@import "../../node_modules/swiper/swiper";
+
+// load aos
+@import "../../node_modules/aos/src/sass/aos";
+
+// load common
+@import "common";
+
+// load header
+@import "parts/header";
+
+// load menu-bottom
+@import "parts/menu-bottom";
+
+// load home
+@import "parts/home";
+
+// load advascroll-sections
+@import "parts/scroll-sections";
+
+// load horizontal scroll slider
+@import "parts/horizontal";
+
+// load feedback
+@import "parts/feedback";
+
+// load team
+@import "parts/team";
+
+// load contacts
+@import "parts/contacts";
+
+// load about
+@import "parts/about";
+
+// load home loader
+@import "parts/loader";
