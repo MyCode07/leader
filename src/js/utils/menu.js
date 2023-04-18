@@ -11,7 +11,14 @@ if (burger) {
     burger.addEventListener('click', () => {
         burger.classList.toggle('_open')
         menu.classList.toggle('_open')
-        body.classList.toggle('_noscroll')
+
+        if (burger.classList.contains('_open')) {
+            body.classList.add('_noscroll')
+        }
+        else {
+            body.classList.remove('_noscroll')
+        }
+        
 
 
         if (burger.classList.contains('_open')) {
@@ -231,9 +238,9 @@ if (rightBurger) {
 
 export function closeOpenMenu() {
     if (burger.classList.contains('_open')) {
-        burger.classList.toggle('_open')
-        menu.classList.toggle('_open')
-        body.classList.toggle('_noscroll')
+        burger.classList.remove('_open')
+        menu.classList.remove('_open')
+        body.classList.remove('_noscroll')
 
         TweenMax.to('.menu__bottom-left .menu-link', {
             y: '100%',

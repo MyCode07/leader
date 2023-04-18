@@ -28,3 +28,19 @@ if (personalGropus.length) {
         })
     }
 }
+
+const persons = document.querySelectorAll('.team__personal-item');
+if (persons.length) {
+    persons.forEach(person => {
+        person.addEventListener('click', function (e) {
+            if (e.target.tagName != 'BUTTON') {
+                person.classList.add('_active')
+            }
+        })
+
+        person.querySelector('button').addEventListener('click', function () {
+            person.classList.remove('_active')
+        })
+
+    })
+}

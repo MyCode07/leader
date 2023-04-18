@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
         if (entries[0].isIntersecting && window.innerWidth > 800) {
             document.body.classList.add('_noscroll')
         }
+        if (entries[0].isIntersecting) {
+            gsap.to(home, {
+                opacity: 1,
+                duration: 0.5
+            })
+        }
     }, { threshold: 1 });
 
     if (slider) {
@@ -90,46 +96,16 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
                     if (speed == scrollHeight) {
                         document.body.classList.remove('_noscroll')
+
+                        gsap.to(home, {
+                            opacity: 0,
+                            duration: 0.5
+                        })
                     }
                 }
             }
         })
 
-        // Observer.create({
-        //     target: '.home',
-        //     type: 'wheel,scroll,DOMMouseScroll',
-
-        //     onChangeY: (self) => {
-
-        //         if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
-        //             locked = true;
-
-        //             speed += self.deltaY;
-
-        //             if (speed < 0) {
-        //                 speed = 0
-        //             }
-        //             if (speed > scrollHeight) {
-        //                 speed = scrollHeight
-        //             }
-
-        //             let start = speed;
-
-        //             slider.style.transform = `translate3d(0, ${-speed}px, 0)`;
-
-
-        //             setTimeout(() => {
-        //                 if (start == speed) {
-        //                     locked = false;
-        //                 }
-        //             }, 750);
-
-        //             if (speed == scrollHeight) {
-        //                 document.body.classList.remove('_noscroll')
-        //             }
-        //         }
-        //     }
-        // })
 
         window.addEventListener('scroll', (e) => {
             homeObserver.observe(home)

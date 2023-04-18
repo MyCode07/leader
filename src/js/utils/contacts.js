@@ -2,13 +2,13 @@ import { gsap } from "gsap";
 import { isMobile } from './isMobile.js'
 
 if (!isMobile.any()) {
-    let contactItems = document.querySelectorAll(".contacts__bottom ol li");
-    let contactItemsImage = document.querySelectorAll(".contacts__bottom ol li img");
+    let contactItems = document.querySelectorAll(".contacts__bottom ul li");
+    let contactItemsImage = document.querySelectorAll(".contacts-animate-img");
 
     if (contactItems.length) {
 
         contactItems.forEach(item => {
-            const animation = gsap.to(item.querySelector('img'), {
+            const animation = gsap.to(item.querySelector('.contacts-animate-img'), {
                 opacity: 1,
                 display: 'block',
                 duration: 0.2,

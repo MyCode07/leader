@@ -36,7 +36,6 @@ function createVerticalScrollAnimation(section) {
                         const next = section.closest('.section__scroll').nextElementSibling;
                         if (!next.classList.contains('horizontal__scroll')) {
                             if (unsetScrolltrigger == false) {
-
                                 gsap.to(window, {
                                     scrollTo: { y: `+=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
                                     duration: scrollduration
@@ -47,12 +46,10 @@ function createVerticalScrollAnimation(section) {
                 }
                 else {
                     if (unsetScrolltrigger == false) {
-
                         gsap.to(window, {
                             scrollTo: { y: `+=${innerHeight}`, autoKill: false, ease: "Power3.easeInOut" },
                             duration: scrollduration
                         });
-                        console.log(unsetScrolltrigger);
                     }
                 }
 
@@ -85,8 +82,6 @@ function createVerticalScrollAnimation(section) {
                             duration: scrollduration
                         });
                     }
-
-                    console.log(unsetScrolltrigger);
                 }
             },
         });
@@ -401,10 +396,7 @@ if (homeScrolLinks.length) {
         const section = document.querySelector(`#${link.dataset.href}`);
         link.addEventListener('click', function (e) {
             unsetScrolltrigger = true;
-            
-            if (document.body.classList.contains('_noscroll')) {
-                document.body.classList.remove('_noscroll')
-            }
+            document.body.classList.remove('_noscroll')
 
             // e.preventDefault();
             // ScrollTrigger.refresh()

@@ -105,13 +105,13 @@
 
             div {
                 position: absolute;
-                left: 40px;
-                top: 65px;
+                left: 65px;
+                top: 60px;
                 z-index: 1;
 
                 @media (max-width: 800px) {
                     left: 20px;
-                    top: 35px;
+                    top: 20px;
                     right: 20px;
                 }
 
