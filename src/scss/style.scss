@@ -46,12 +46,24 @@
 // load home about
 @import "parts/course";
 
+<<<<<<< HEAD
 // load home breadcrumbs
 @import "parts/breadcrumbs";
 
 // load home education
 @import "parts/education";
 
+=======
+// load home loader
+@import "parts/docs";
+
+// load home loader
+@import "parts/hull";
+
+// load home loader
+@import "parts/breadcrumbs";
+
+>>>>>>> 1ef05c9d2fcb103eac2cec3733f97c1a47265170
 
 // load home loader
 @import "parts/loader";
