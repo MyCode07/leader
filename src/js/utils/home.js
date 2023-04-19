@@ -132,37 +132,47 @@ const options = {
 const observer = new IntersectionObserver(callback, options);
 const titles = document.querySelectorAll(".title-animate");
 
-titles.forEach(title => {
-    const action = gsap.timeline({ paused: true })
-        .to(title.querySelectorAll('span i'), {
-            height: '1em',
-            duration: 0.5,
-            delay: 0.5,
-            stagger: 0.5,
-            onComplete: () => {
-                if (title.closest('.loader')) {
-                    gsap.to('.loader', {
-                        opacity: 0,
-                        duration: 0.75,
-                        onComplete: () => {
-                            gsap.to('.header', {
-                                opacity: 1,
-                                duration: 0.3,
-                            })
-                            document.querySelector('.loader').remove()
-                        }
-                    })
+if (titles.length) {
+    titles.forEach(title => {
+        const action = gsap.timeline({ paused: true })
+            .to(title.querySelectorAll('span i'), {
+                height: '1em',
+                duration: 0.5,
+                delay: 0.5,
+                stagger: 0.5,
+                onComplete: () => {
+                    if (title.closest('.loader')) {
+                        gsap.to('.loader', {
+                            opacity: 0,
+                            duration: 0.75,
+                            onComplete: () => {
+                                gsap.to('.header', {
+                                    opacity: 1,
+                                    duration: 0.3,
+                                })
+                                document.querySelector('.loader').remove()
+                            }
+                        })
+                    }
+                    else {
+                        gsap.to('.header', {
+                            opacity: 1,
+                            duration: 0.75,
+                        })
+                    }
                 }
-                else {
-                    gsap.to('.header', {
-                        opacity: 1,
-                        duration: 0.75,
-                    })
-                }
-            }
-        })
+            })
 
-    title.timeline = action;
+        title.timeline = action;
 
-    observer.observe(title);
-});
+        observer.observe(title);
+    });
+}
+else {
+    gsap.to('.header', {
+        delay: 1,
+        opacity: 1,
+        duration: 0.75,
+    })
+}
+

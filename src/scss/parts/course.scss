@@ -1,0 +1,118 @@
+.course {
+    @include adaptive-value("padding-top", 146, 110, 1);
+    min-height: 150vh;
+
+    // .course__container
+
+    &__container {
+        @include adaptive-value("padding-inline", 123, 10, 1);
+    }
+
+    // .course__body
+
+    &__body {
+    }
+
+    h1 {
+        font-style: normal;
+        font-weight: 500;
+        line-height: 89.9%;
+        color: #000000;
+        @include adaptive-value("font-size", 188, 42, 1);
+        display: flex;
+        flex-course: column;
+        justify-content: space-between;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+
+        & > :first-child {
+            transform: translate(0, -100%);
+            opacity: 0;
+        }
+
+        & > :last-child {
+            align-self: flex-end;
+            transform: translate(0, 100%);
+            opacity: 0;
+        }
+    }
+
+    // .course__top
+
+    &__top {
+        position: relative;
+        @include adaptive-value("padding-top", 138, 29, 1);
+        @include adaptive-value("padding-bottom", 72, 19, 1);
+
+        img {
+            width: 100%;
+            max-width: 942px;
+            display: block;
+            object-fit: cover;
+            margin-inline: auto;
+            position: relative;
+            z-index: 1;
+            max-height: 683px;
+
+            transform: translate(0, 10%);
+            opacity: 0;
+
+            @media (min-width: 1025px) {
+                min-height: 60vh;
+            }
+
+            @media (max-width: 800px) {
+                max-width: 640px;
+            }
+
+            @media (max-width: 390px) {
+                max-width: 230px;
+                min-height: 331px;
+            }
+        }
+    }
+
+    // .course__bottom
+
+    &__bottom {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        // .course__bottom-content
+
+        &-content {
+            max-width: 940px;
+            margin-inline: auto;
+
+            opacity: 0;
+            transform: translate(0, 100%);
+
+            @media (max-width: 800px) {
+                max-width: 640px;
+            }
+
+            @media (max-width: 390px) {
+                max-width: 230px;
+            }
+
+            p {
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.2;
+                text-align: center;
+                color: #000000;
+                @include adaptive-value("font-size", 20, 10, 1);
+            }
+        }
+    }
+}
