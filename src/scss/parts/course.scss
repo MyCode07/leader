@@ -20,7 +20,7 @@
         color: #000000;
         @include adaptive-value("font-size", 188, 42, 1);
         display: flex;
-        flex-course: column;
+        flex-direction: column;
         justify-content: space-between;
         position: absolute;
         left: 0;

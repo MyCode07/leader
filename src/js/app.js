@@ -7,4 +7,5 @@ import "./utils/feedback.js";
 import "./utils/contacts.js";
 import "./utils/breadcambs.js";
 import "./utils/course.js";
+import "./utils/education.js";
 
