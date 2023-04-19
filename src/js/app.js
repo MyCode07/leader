@@ -7,9 +7,6 @@ import "./utils/feedback.js";
 import "./utils/contacts.js";
 import "./utils/breadcambs.js";
 import "./utils/course.js";
-<<<<<<< HEAD
 import "./utils/education.js";
-=======
 import "./utils/docs.js";
->>>>>>> 1ef05c9d2fcb103eac2cec3733f97c1a47265170
-
+import "./utils/hull.js";

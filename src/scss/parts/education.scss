@@ -25,6 +25,7 @@
 
     &__body {
         h1 {
+            text-align: center;
             height: auto;
             font-style: normal;
             font-weight: 500;
@@ -34,6 +35,7 @@
             @include adaptive-value("margin-bottom", 32, 7, 1);
 
             span {
+                display: block;
                 transform: translate(0, 100px);
                 opacity: 0;
             }
