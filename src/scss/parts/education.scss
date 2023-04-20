@@ -12,7 +12,8 @@
 
     @media (max-width: 1024px) {
         min-height: unset;
-        @include adaptive-value("padding-top", 335, 101, 1);
+        @include adaptive-value("padding-top", 335, 120, 1);
+        @include adaptive-value("padding-bottom", 335, 101, 1);
     }
 
     // .education__container
@@ -32,7 +33,7 @@
             line-height: 89.9%;
             color: #000000;
             @include adaptive-value("font-size", 188, 42, 1);
-            @include adaptive-value("margin-bottom", 32, 7, 1);
+            @include adaptive-value("margin-bottom", 32, 50, 1);
 
             span {
                 display: block;
@@ -51,7 +52,7 @@
             text-align: center;
 
             @include adaptive-value("font-size", 24, 10, 1);
-            @include adaptive-value("margin-bottom", 114, 18, 1);
+            @include adaptive-value("margin-bottom", 114, 10, 1);
 
             transform: translate(0, 100px);
             opacity: 0;

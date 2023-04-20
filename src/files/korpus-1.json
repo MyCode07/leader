@@ -1,0 +1,83 @@
+{
+    "hull": {
+        "name": "Холл",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quasi sunt necessitatibus cumque vitae possimus consequuntur ipsum, illo eum, repellat aliquam ducimus repellendus voluptatem consectetur, officia mollitia quia debitis! Odio!",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
+    },
+    "stalovaya": {
+        "name": "Столовая",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quasi sunt necessitatibus cumque vitae possimus consequuntur ipsum, illo eum, repellat aliquam ducimus repellendus voluptatem consectetur, officia mollitia quia debitis! Odio!",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
+    },
+    "sportzal": {
+        "name": "Спортзал",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quasi sunt necessitatibus cumque vitae possimus consequuntur ipsum, illo eum, repellat aliquam ducimus repellendus voluptatem consectetur, officia mollitia quia debitis! Odio!",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
+    },
+    "zona-odyxa": {
+        "name": "Зона отдыха",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quasi sunt necessitatibus cumque vitae possimus consequuntur ipsum, illo eum, repellat aliquam ducimus repellendus voluptatem consectetur, officia mollitia quia debitis! Odio!",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
+    },
+    "razdevalka": {
+        "name": "Раздевалка",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quasi sunt necessitatibus cumque vitae possimus consequuntur ipsum, illo eum, repellat aliquam ducimus repellendus voluptatem consectetur, officia mollitia quia debitis! Odio!",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
+    },
+    "med-punkt": {
+        "name": "Мед. пункт",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quasi sunt necessitatibus cumque vitae possimus consequuntur ipsum, illo eum, repellat aliquam ducimus repellendus voluptatem consectetur, officia mollitia quia debitis! Odio!",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
+    },
+    "klass-robototexniki": {
+        "name": "Класс робототехники",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quasi sunt necessitatibus cumque vitae possimus consequuntur ipsum, illo eum, repellat aliquam ducimus repellendus voluptatem consectetur, officia mollitia quia debitis! Odio!",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
+    },
+    "klass-tvorchestva": {
+        "name": "Класс творчества",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quasi sunt necessitatibus cumque vitae possimus consequuntur ipsum, illo eum, repellat aliquam ducimus repellendus voluptatem consectetur, officia mollitia quia debitis! Odio!",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
+    },
+    "klass-biologii": {
+        "name": "Класс биологии",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quasi sunt necessitatibus cumque vitae possimus consequuntur ipsum, illo eum, repellat aliquam ducimus repellendus voluptatem consectetur, officia mollitia quia debitis! Odio!",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png"
+        ]
+    }
+}
