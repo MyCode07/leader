@@ -3,23 +3,24 @@ import gsap from 'gsap'
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            animate(entry);
+            animateStagger();
         }
     })
 }, { threshold: 0.2 });
 
-const documentsList = document.querySelectorAll('.documents__list li');
-if (documentsList.length) {
-    documentsList.forEach(elem => {
+const staggerElems = document.querySelectorAll('.elem-animate-stagger');
+console.log(staggerElems);
+if (staggerElems.length) {
+    staggerElems.forEach(elem => {
         observer.observe(elem)
     })
 }
 
-function animate(elem) {
-    gsap.to(elem.target, {
+function animateStagger() {
+    gsap.to('.elem-animate-stagger', {
         y: 0,
         opacity: 1,
         duration: 0.7,
-        stagger: 0.2,
+        stagger: 0.3,
     })
 }

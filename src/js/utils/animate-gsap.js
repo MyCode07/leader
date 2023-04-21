@@ -20,7 +20,7 @@ function animate(elem) {
         opacity: 1,
         duration: 1,
         y: 0,
-        delay: elem.target.dataset.delay,
+        delay: +elem.target.dataset.delay,
         ease: 'ease'
     });
 }

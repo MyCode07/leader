@@ -79,6 +79,7 @@
     // .course__bottom
 
     &__bottom {
+        @include adaptive-value("padding-inline", 123, 10, 1);
         position: fixed;
         left: 0;
         top: 0;
@@ -101,17 +102,13 @@
                 max-width: 640px;
             }
 
-            @media (max-width: 390px) {
-                max-width: 230px;
-            }
-
             p {
                 font-style: normal;
                 font-weight: 400;
                 line-height: 1.2;
                 text-align: center;
                 color: #000000;
-                @include adaptive-value("font-size", 20, 10, 1);
+                @include adaptive-value("font-size", 20, 12, 1);
             }
         }
     }
