@@ -9,7 +9,6 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 const staggerElems = document.querySelectorAll('.elem-animate-stagger');
-console.log(staggerElems);
 if (staggerElems.length) {
     staggerElems.forEach(elem => {
         observer.observe(elem)

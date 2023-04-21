@@ -1,0 +1,247 @@
+.admission {
+    min-height: unset;
+    padding-top: 72px;
+    @include adaptive-value("padding-bottom", 220, 170, 1);
+
+    @media (max-width: 1024px) {
+        padding-top: 121px;
+    }
+
+    // .admission__container
+
+    &__container {
+        @include adaptive-value("padding-inline", 123, 10, 1);
+    }
+
+    // .admission__body
+
+    &__body {
+    }
+
+    h1 {
+        height: 5ch;
+        @include adaptive-value("font-size", 80, 26, 1);
+
+        & > :first-child i {
+            padding-left: 0;
+        }
+
+        & > :nth-child(2) i {
+            padding-left: 4.8ch;
+
+            @media (max-width: 1024px) {
+                padding-left: 3ch;
+            }
+
+            @media (max-width: 800px) {
+                padding-left: 0.6ch;
+            }
+        }
+
+        & > :last-child i {
+            padding-left: 2.5ch;
+
+            @media (max-width: 1024px) {
+                padding-left: 1.5ch;
+            }
+
+            @media (max-width: 800px) {
+                padding-left: 0.3ch;
+            }
+        }
+    }
+
+    // .admission__flex
+
+    &__flex {
+        @include adaptive-value("margin-top", 110, 70, 1);
+
+        @media (min-width: 801px) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    // .admission__left
+
+    &__left {
+        @media (max-width: 800px) {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.2;
+            color: #000000;
+            @include adaptive-value("font-size", 20, 18, 1);
+            @include adaptive-value("margin-bottom", 60, 30, 1);
+
+            @include adaptive-value("padding-left", 40, 10, 1);
+        }
+
+        ol {
+            max-width: 735px;
+
+            & > :not(:last-child) {
+                @include adaptive-value("margin-bottom", 95, 30, 1);
+            }
+
+            li {
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.2;
+                color: #000000;
+                @include adaptive-value("font-size", 32, 14, 1);
+                @include adaptive-value("padding-top", 25, 10, 1);
+                @include adaptive-value("padding-bottom", 25, 10, 1);
+                @include adaptive-value("padding-inline", 40, 10, 1);
+
+                background-color: transparent;
+                border-radius: 10px;
+                transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+
+                position: relative;
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    @include adaptive-value("right", 40, 10, 1);
+                    top: 50%;
+                    transform: translate(0, -50%);
+
+                    @include adaptive-value("width", 30, 20, 1);
+                    @include adaptive-value("height", 30, 20, 1);
+                    border-radius: 50%;
+                    border: 1px solid #000000;
+                    transition: all 0.3s ease 0s;
+                }
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        color: #fff;
+                        background-color: #614f3c;
+
+                        &:before {
+                            border-color: #f2efe6;
+                            border-width: 5px;
+                        }
+                    }
+                }
+
+                opacity: 0;
+                transform: translate(0, 100%);
+
+                span {
+                    display: block;
+                    @include adaptive-value("font-size", 24, 12, 1);
+                }
+            }
+        }
+    }
+
+    // .admission__right
+
+    &__right {
+        text-align: right;
+        max-width: 700px;
+
+        h3 {
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.2;
+            color: #000000;
+            @include adaptive-value("font-size", 20, 16, 1);
+            @include adaptive-value("margin-bottom", 60, 30, 1);
+
+            @include adaptive-value("padding-right", 160, 70, 1);
+        }
+
+        ol {
+            & > :not(:last-child) {
+                @include adaptive-value("margin-bottom", 100, 30, 1);
+            }
+
+            li {
+                @include adaptive-value("padding-top", 25, 10, 1);
+                @include adaptive-value("padding-bottom", 25, 10, 1);
+                @include adaptive-value("padding-inline", 40, 10, 1);
+
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.2;
+                color: #000000;
+                @include adaptive-value("font-size", 32, 14, 1);
+                width: fit-content;
+                margin-left: auto;
+
+                border: 3px solid transparent;
+                border-radius: 10px;
+
+                transition: border-color 0.3s ease 0s;
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        border-color: #614f3c;
+                    }
+                }
+
+                opacity: 0;
+                transform: translate(0, 100%);
+
+                a {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    color: currentColor;
+
+                    * {
+                        pointer-events: none;
+                    }
+                }
+
+                span {
+                    display: block;
+                }
+
+                label {
+                    display: block;
+                    @include adaptive-value("font-size", 24, 12, 1);
+                }
+
+                i {
+                    @include adaptive-value("margin-left", 20, 10, 1);
+
+                    width: 100px;
+                    height: 100px;
+                    flex-shrink: 0;
+                    flex-grow: 0;
+
+                    @include adaptive-value("width", 100, 50, 1);
+                    @include adaptive-value("height", 100, 50, 1);
+                    @include adaptive-value("flex-basis", 100, 50, 1);
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    border: 3px solid #614f3c;
+                    border-radius: 50px;
+
+                    @media (max-width: 1024px) {
+                        border-width: 2px;
+                    }
+
+                    @media (max-width: 800px) {
+                        border-width: 1px;
+                    }
+
+                    img {
+                        display: block;
+                        width: 40%;
+                    }
+                }
+            }
+        }
+    }
+}
