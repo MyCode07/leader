@@ -11,4 +11,3 @@ import "./utils/education.js";
 import "./utils/hull.js";
 
 import "./utils/animate-gsap.js";
-import "./utils/animate-stagger.js";

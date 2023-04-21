@@ -1,4 +1,3 @@
-
 import { Swiper, Pagination, Mousewheel, FreeMode } from "swiper";
 
 const feedbackSlides = document.querySelectorAll('.feedback__scroll .swiper-slide');

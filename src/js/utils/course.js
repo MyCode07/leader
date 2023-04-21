@@ -5,11 +5,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 const courseSection = document.querySelector('.course');
-
 if (courseSection) {
     const h1 = courseSection.querySelector('h1')
     const img = courseSection.querySelector('img')
-    const top = courseSection.querySelector('.course__top')
     const content = courseSection.querySelector('.course__bottom-content')
 
     gsap.to(h1.querySelectorAll('span'), {
@@ -25,7 +23,6 @@ if (courseSection) {
         delay: 0.5,
         duration: 0.7,
     })
-
 
     ScrollTrigger.create({
         trigger: courseSection,
@@ -53,21 +50,9 @@ if (courseSection) {
                 delay: 0.7,
                 duration: 0.5,
             })
-
-            console.log('onEnter');
-
         },
-        onLeave: () => {
-            console.log('onLeave');
-
-        },
-        onEnterBack: () => {
-            console.log('onEnterBack');
-
-        },
+       
         onLeaveBack: () => {
-            console.log('onLeaveBack');
-
             gsap.to(h1.querySelectorAll('span'), {
                 opacity: 1,
                 y: 0,
@@ -87,8 +72,6 @@ if (courseSection) {
                 y: '50%',
                 duration: 0.5,
             })
-
-
         }
     });
 }

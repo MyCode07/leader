@@ -1,16 +1,13 @@
 import gsap from 'gsap'
 import ScrollTrigger from "gsap/ScrollTrigger.js";
-
 gsap.registerPlugin(ScrollTrigger);
 
 
 const education = document.querySelector('.education');
-
 if (education) {
     const h1 = education.querySelector('h1')
     const label = education.querySelector('label')
     const descroption = education.querySelector('p')
-
 
     const observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
@@ -34,11 +31,11 @@ if (education) {
                 delay: 0.5,
                 duration: 0.5,
             })
+
+            observer.unobserve(entries[0].target)
         }
     });
     observer.observe(education)
-
-
 
     let start = "center 25%"
     if (window.innerWidth <= 1024) {
@@ -72,21 +69,9 @@ if (education) {
                 duration: 0.5,
                 delay: 0.5,
             })
-
-            console.log('onEnter');
-
         },
-        onLeave: () => {
-            console.log('onLeave');
-
-        },
-        onEnterBack: () => {
-            console.log('onEnterBack');
-
-        },
+       
         onLeaveBack: () => {
-            console.log('onLeaveBack');
-
             gsap.to(h1.querySelectorAll('span'), {
                 opacity: 1,
                 y: 0,
@@ -107,8 +92,6 @@ if (education) {
                 duration: 0.5,
                 delay: 0.3,
             })
-
-
         }
     });
 }

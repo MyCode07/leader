@@ -267,7 +267,6 @@ createVerticalScrollAnimation(document.querySelector('#vertical_scroll_5 .sectio
 const aboutSection = document.querySelector('.about');
 if (aboutSection) {
     const title = aboutSection.querySelector('h1');
-    const animatedBlocks = document.querySelectorAll('.about-animate');
     const images = document.querySelectorAll('.about__images img');
 
 
@@ -275,6 +274,8 @@ if (aboutSection) {
         entries.forEach(function (entry) {
             if (entry.isIntersecting) {
                 entry.target.timeline.play();
+
+                observer.observe(entry.target);
             }
         });
     })

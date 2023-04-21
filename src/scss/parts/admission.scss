@@ -21,6 +21,7 @@
     h1 {
         height: 5ch;
         @include adaptive-value("font-size", 80, 26, 1);
+        text-transform: inherit;
 
         & > :first-child i {
             padding-left: 0;

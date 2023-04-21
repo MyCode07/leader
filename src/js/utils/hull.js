@@ -62,10 +62,16 @@ if (document.querySelector('.hull')) {
 }
 
 
+
+const stagger = 0.2;
 const observer = new IntersectionObserver(entries => {
+    let intersected = 0;
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            animate(entry);
+            animate(entry.target, intersected);
+            intersected++;
+
+            observer.unobserve(entry.target)
         }
     })
 }, { threshold: 0.2 });
@@ -191,12 +197,12 @@ function observeHullGridItems(data, corpus) {
     })
 }
 
-function animate(entry) {
-    gsap.to(entry.target, {
+function animate(entry, i) {
+    gsap.to(entry, {
         y: 0,
         opacity: 1,
         duration: 0.7,
-        stagger: 0.2,
+        delay: stagger * i
     })
 }
 
@@ -214,6 +220,7 @@ if (hullmap) {
                 opacity: 1,
                 duration: 1,
                 onComplete: () => {
+
                     gsap.to(span, {
                         opacity: 0,
                         duration: 0.7,
@@ -234,6 +241,8 @@ if (hullmap) {
                 duration: 0.5,
                 delay: 1.5,
             })
+
+            observer.unobserve(entries[0].target)
         }
     }, { threshold: 0.2 });
 

@@ -7,9 +7,6 @@ import Observer from "gsap/Observer.js";
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, Observer);
 const tl = gsap.timeline()
 
-
-
-
 document.addEventListener('DOMContentLoaded', function (e) {
     const slider = document.querySelector('.home__slider-wrapper');
     const home = document.querySelector('.home');
@@ -25,12 +22,13 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 opacity: 1,
                 duration: 0.5
             })
+
+            observer.unobserve(entries[0].target)
         }
     }, { threshold: 1 });
 
     if (slider) {
         homeObserver.observe(home)
-
 
         const scrollHeight = slider.scrollHeight - window.innerHeight;
         let delay = 0
@@ -68,12 +66,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
         Observer.create({
             target: window,
             type: 'wheel,scroll,DOMMouseScroll',
-
             onChangeY: (self) => {
-
                 if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
                     locked = true;
-
                     speed += self.deltaY;
 
                     if (speed < 0) {
@@ -84,9 +79,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                     }
 
                     let start = speed;
-
                     slider.style.transform = `translate3d(0, ${-speed}px, 0)`;
-
 
                     setTimeout(() => {
                         if (start == speed) {
@@ -96,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
                     if (speed == scrollHeight) {
                         document.body.classList.remove('_noscroll')
-
                         gsap.to(home, {
                             opacity: 0,
                             duration: 0.5
@@ -105,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 }
             }
         })
-
 
         window.addEventListener('scroll', (e) => {
             homeObserver.observe(home)
@@ -118,9 +109,8 @@ const callback = function (entries, observer) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
             entry.target.timeline.play();
-        }
-        else {
-            //entry.target.timeline.pause(0);
+
+            observer.unobserve(entry.target)
         }
     });
 };
@@ -131,7 +121,6 @@ const options = {
 
 const observer = new IntersectionObserver(callback, options);
 const titles = document.querySelectorAll(".title-animate");
-
 if (titles.length) {
     titles.forEach(title => {
         const action = gsap.timeline({ paused: true })
@@ -175,4 +164,3 @@ else {
         duration: 0.75,
     })
 }
-

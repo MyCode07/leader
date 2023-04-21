@@ -47,9 +47,7 @@ const callback = function (entries, observer) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
             entry.target.timeline.play();
-        }
-        else {
-            //entry.target.timeline.pause(0);
+            observer.unobserve(entry.target);
         }
     });
 };
@@ -57,21 +55,15 @@ const callback = function (entries, observer) {
 const options = {
     threshold: 0.6,
 };
-
 const observer = new IntersectionObserver(callback, options);
 const contactsAnimateElements = document.querySelectorAll(".contacts-animate");
-
 if (contactsAnimateElements.length) {
-
     contactsAnimateElements.forEach(elem => {
         const action = gsap.timeline({ paused: true })
             .to(elem, {
                 y: 0,
-                x: 0,
-                z: 0,
                 opacity: 1,
                 duration: 0.5,
-                delay: 0.5,
                 stagger: 0.3
             })
 

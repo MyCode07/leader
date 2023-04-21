@@ -18,7 +18,6 @@ if (burger) {
         else {
             body.classList.remove('_noscroll')
         }
-        
 
 
         if (burger.classList.contains('_open')) {
@@ -298,7 +297,6 @@ export function closeOpenMenu() {
                 ease: 'ease-in-out',
                 delay: 0.3,
                 onComplete: () => rightMenu.classList.remove('_open')
-
             })
         }
     }
