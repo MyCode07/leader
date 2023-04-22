@@ -1,14 +1,9 @@
 import gsap from 'gsap'
 
-const stagger = 0.3;
 const observer = new IntersectionObserver(entries => {
-    let intersected = 0;
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             animate(entry.target);
-            animateStagger(entry.target, intersected);
-            intersected++;
-
             observer.unobserve(entry.target);
         }
     })
@@ -35,10 +30,27 @@ function animate(elem) {
 }
 
 
+
+
+// stagger animnation
+
+const observerStagger = new IntersectionObserver(entries => {
+    let intersected = 0;
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateStagger(entry.target, intersected);
+            intersected++;
+            observer.unobserve(entry.target);
+        }
+    })
+}, { threshold: 0.2 });
+
+
+const stagger = 0.3;
 const staggerElems = document.querySelectorAll('.elem-animate-stagger');
 if (staggerElems.length) {
     staggerElems.forEach(elem => {
-        observer.observe(elem)
+        observerStagger.observe(elem)
     })
 }
 
@@ -46,6 +58,7 @@ function animateStagger(elem, i) {
     if (elem) {
         gsap.to(elem, {
             y: 0,
+            x:0,
             opacity: 1,
             duration: 0.7,
             delay: stagger * i
