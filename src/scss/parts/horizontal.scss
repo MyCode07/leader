@@ -87,6 +87,10 @@
         // .horizontal__scroll-slide-body
 
         &-body {
+            a {
+                display: block;
+            }
+
             &:before {
                 position: absolute;
                 content: "";

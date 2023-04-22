@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         Observer.create({
             target: window,
             type: 'wheel,scroll,DOMMouseScroll',
+
             onChangeY: (self) => {
                 if (document.querySelector('.home').getBoundingClientRect().top == 0 && window.innerWidth > 800) {
                     locked = true;
@@ -89,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
                     if (speed == scrollHeight) {
                         document.body.classList.remove('_noscroll')
+                        document.querySelector('.scroll-animate').scrollIntoView();
+
                         gsap.to(home, {
                             opacity: 0,
                             duration: 0.5

@@ -1,6 +1,6 @@
 .documents {
     padding-top: 72px;
-    @include adaptive-value("padding-bottom", 150, 170, 1);
+    @include adaptive-value("padding-bottom", 220, 170, 1);
 
     @media (max-width: 1024px) {
         padding-top: 121px;
