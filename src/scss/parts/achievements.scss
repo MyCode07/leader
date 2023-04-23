@@ -93,6 +93,13 @@
             align-items: flex-end;
             text-align: right;
         }
+
+        .achievements__grid-item-images {
+            & > :last-child {
+                top: 15%;
+                left: -15%;
+            }
+        }
     }
 
     & > :last-child {
@@ -119,13 +126,21 @@
             padding-bottom: 40%;
 
             @media (max-width: 800px) {
+                width: 40%;
+                flex: 0 0 40%;
+                padding-bottom: 40%;
+            }
+
+            @media (max-width: 540px) {
+                margin-bottom: 10%;
                 width: 50%;
                 flex: 0 0 50%;
                 padding-bottom: 50%;
             }
 
-            @media (max-width: 640px) {
-                margin-bottom: 10px;
+            & > :last-child {
+                top: 15%;
+                left: 15%;
             }
 
             img {
@@ -139,6 +154,10 @@
 
                 opacity: 0;
                 transform: translate(0, 50%);
+
+                &:hover {
+                    z-index: 1;
+                }
             }
         }
 
