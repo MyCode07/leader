@@ -4,7 +4,7 @@ import { excerpt } from './excerpt.js';
 
 
 if (document.querySelector('.hull')) {
-    async function getFaq() {
+    async function getHulls() {
         const corpus = document.querySelector('h1').dataset.title;
 
         const file = `../files/${corpus}.json`;
@@ -20,7 +20,7 @@ if (document.querySelector('.hull')) {
             alert("Error");
         }
     }
-    getFaq()
+    getHulls()
 
 
 

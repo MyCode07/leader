@@ -299,8 +299,8 @@ if (aboutSection) {
 
     ScrollTrigger.create({
         trigger: '.about__body',
-        start: "top top",
-        end: "bottom",
+        start: "center center",
+        end: "+=100%",
         scrub: 1,
 
         onEnter: () => {
