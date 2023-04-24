@@ -96,8 +96,18 @@
 
         .achievements__grid-item-images {
             & > :last-child {
-                top: 15%;
-                left: -15%;
+                top: 20%;
+                left: 0%;
+                transform: rotate(-10deg) translate(0, 50%);
+
+                @media (max-width:540px){
+                    left: 20%;
+                    top: 0;
+                }
+            }
+
+            & > :first-child {
+                transform: rotate(10deg) translate(0, 50%);
             }
         }
     }
@@ -136,11 +146,27 @@
                 width: 50%;
                 flex: 0 0 50%;
                 padding-bottom: 50%;
+                margin-inline: auto;
+            }
+
+            & > :first-child {
+                transform: rotate(-10deg) translate(0, 50%);
+
+                @media (max-width: 540px) {
+                    left: -20%;
+                }
             }
 
             & > :last-child {
-                top: 15%;
-                left: 15%;
+                top: 20%;
+                left: 20%;
+                transform: rotate(10deg) translate(0, 50%);
+                width: 80%;
+
+                @media (max-width:540px){
+                    width: 100%;
+                    top: 0;
+                }
             }
 
             img {
@@ -153,7 +179,6 @@
                 display: block;
 
                 opacity: 0;
-                transform: translate(0, 50%);
 
                 &:hover {
                     z-index: 1;
