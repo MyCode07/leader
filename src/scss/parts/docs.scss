@@ -8,7 +8,7 @@
 
     h1 {
         text-transform: inherit;
-        height: 5ch;
+        height: auto !important;
 
         @include adaptive-value("font-size", 80, 26, 1);
 

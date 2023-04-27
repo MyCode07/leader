@@ -11,3 +11,13 @@ import "./utils/education.js";
 import "./utils/hull.js";
 
 import "./utils/animate-gsap.js";
+
+
+
+
+window.addEventListener("scroll", function () {
+    const height = window.scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
+    if (document.querySelector('.scroll-percent')) {
+        document.querySelector('.scroll-percent').innerHTML = Math.round(height * 100) + ' %';
+    }
+})

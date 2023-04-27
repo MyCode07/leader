@@ -116,17 +116,19 @@
                     border-radius: 50%;
                     border: 1px solid #000000;
                     transition: all 0.3s ease 0s;
+
+                    display: none;
                 }
 
                 @media (any-hover: hover) {
                     &:hover {
-                        color: #fff;
-                        background-color: #614f3c;
+                        // color: #fff;
+                        // background-color: #614f3c;
 
-                        &:before {
-                            border-color: #f2efe6;
-                            border-width: 5px;
-                        }
+                        // &:before {
+                        //     border-color: #f2efe6;
+                        //     border-width: 5px;
+                        // }
                     }
                 }
 

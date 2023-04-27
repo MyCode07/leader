@@ -218,3 +218,21 @@
         }
     }
 }
+
+.scroll-percent {
+    position: fixed;
+    @include adaptive-value("right", 50, 10, 1);
+
+    @media (min-width: 801px) {
+        @include adaptive-value("top", 150, 100, 1);
+    }
+
+    @media (max-width: 800px) {
+        top: 35px;
+    }
+
+    @include adaptive-value("font-size", 30, 16, 1);
+    color: #000;
+    line-height: 1;
+    pointer-events: none;
+}

@@ -24,8 +24,8 @@
         align-items: center;
         justify-content: flex-end;
         @include adaptive-value("padding-inline", 35, 0, 1);
-        @include adaptive-value("padding-top", 37, 20, 1);
-        @include adaptive-value("padding-bottom", 37, 20, 1);
+        @include adaptive-value("padding-top", 37, 0, 1);
+        @include adaptive-value("padding-bottom", 37, 0, 1);
 
         @media (max-width: 800px) {
             justify-content: center;
@@ -80,6 +80,15 @@
 
         img {
             display: block;
+            width: 110px;
+
+            @media (max-width: 1200px) {
+                width: 90px;
+            }
+
+            @media (max-width: 800px) {
+                width: 80px;
+            }
         }
     }
 }
