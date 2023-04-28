@@ -1,6 +1,10 @@
 .course {
-    @include adaptive-value("padding-top", 146, 110, 1);
+    padding-top: 72px;
     min-height: 150vh;
+
+    @media (max-width: 1024px) {
+        padding-top: 116px;
+    }
 
     // .course__container
 
@@ -13,31 +17,66 @@
     &__body {
     }
 
+    .title-animate {
+        @media (max-width: 800px) {
+            visibility: hidden;
+            pointer-events: none;
+            height: 0;
+            opacity: 0;
+        }
+    }
+
     h1 {
         font-style: normal;
         font-weight: 500;
         line-height: 89.9%;
         color: #000000;
-        @include adaptive-value("font-size", 188, 42, 1);
+        @include adaptive-value("font-size", 80, 34, 1);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width: 425px) {
+            font-size: 30px;
+        }
+
+        @media (max-width: 475px) {
+            font-size: 26px;
+        }
 
         & > :first-child {
             transform: translate(0, -100%);
             opacity: 0;
         }
 
+        & > :nth-child(2) {
+            transform: translate(0, -100%);
+            opacity: 0;
+            padding-left: 4ch;
+
+            @media (max-width: 800px) {
+                padding-left: 2ch;
+            }
+
+            @media (max-width: 600px) {
+                padding-left: 1ch;
+            }
+        }
+
         & > :last-child {
-            align-self: flex-end;
             transform: translate(0, 100%);
             opacity: 0;
+            padding-left: 2ch;
+
+            @media (max-width: 800px) {
+                padding-left: 1ch;
+            }
+
+            @media (max-width: 600px) {
+                padding-left: 0.5ch;
+            }
         }
     }
 
@@ -45,34 +84,46 @@
 
     &__top {
         position: relative;
-        @include adaptive-value("padding-top", 138, 29, 1);
-        @include adaptive-value("padding-bottom", 72, 19, 1);
+        display: flex;
+        align-items: center;
 
-        img {
-            width: 100%;
-            max-width: 942px;
+        @media (min-width: 801px) {
+            @include adaptive-value("padding-top", 0, 72, 1);
+        }
+
+        @media (max-width: 800px) {
             display: block;
-            object-fit: cover;
-            margin-inline: auto;
-            position: relative;
-            z-index: 1;
-            max-height: 683px;
+        }
 
-            transform: translate(0, 10%);
-            opacity: 0;
-
-            @media (min-width: 1025px) {
-                min-height: 60vh;
+        h1 {
+            @media (min-width: 801px) {
+                flex: 0 0 50%;
+                max-width: 50%;
+                width: 50%;
             }
 
             @media (max-width: 800px) {
-                max-width: 640px;
+            }
+        }
+
+        img {
+            @media (min-width: 801px) {
+                flex: 0 0 50%;
+                max-width: 50%;
+                width: 50%;
+                aspect-ratio: 1/0.7;
             }
 
-            @media (max-width: 390px) {
-                max-width: 230px;
-                min-height: 331px;
+            @media (max-width: 800px) {
+                aspect-ratio: 1/1;
             }
+
+            display: block;
+            width: 100%;
+            object-fit: cover;
+
+            transform: translate(0, 10%);
+            opacity: 0;
         }
     }
 

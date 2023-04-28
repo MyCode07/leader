@@ -7,6 +7,25 @@
     z-index: 10;
     opacity: 0;
 
+    &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        width: 200%;
+        height: 70%;
+        filter: blur(33px);
+        background: #f2efe6;
+        z-index: -1;
+
+        @media (max-width: 800px) {
+            left: -50%;
+            height: 200%;
+            top: unset;
+            bottom: 0;
+        }
+    }
+
     @media (max-width: 800px) {
         left: 0;
         width: 100%;
