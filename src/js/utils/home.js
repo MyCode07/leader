@@ -15,34 +15,34 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
     const homeObserver = new IntersectionObserver(function (entries, observer) {
         if (entries[0].isIntersecting && window.innerWidth > 800) {
-            document.body.classList.add('_noscroll')
+            document.body.classList.add('_noscroll-fixed')
+            window.scrollTo(0, 0)
+            observer.unobserve(entries[0].target)
         }
         if (entries[0].isIntersecting) {
             gsap.to(home, {
                 opacity: 1,
                 duration: 0.5
             })
-
             observer.unobserve(entries[0].target)
         }
     }, { threshold: 1 });
 
     if (slider) {
         homeObserver.observe(home)
-
         const scrollHeight = slider.scrollHeight - window.innerHeight;
+
         let delay = 0
         if (window.innerWidth > 800) {
             delay = 0.5
         }
 
-
         tl.to('.home__slider', {
             opacity: 1,
             duration: 0.5,
             delay: delay,
-            onComplete: function () {
 
+            onComplete: function () {
                 let interval = setInterval(() => {
                     if (window.innerWidth > 800) {
                         if (speed < scrollHeight && locked == false) {
@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
                     }
 
                 }, 16);
-
             }
         })
 
@@ -89,13 +88,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
                     }, 750);
 
                     if (speed == scrollHeight) {
-                        document.body.classList.remove('_noscroll')
-                        document.querySelector('.scroll-animate').scrollIntoView();
-
+                        document.body.classList.remove('_noscroll-fixed')
                         gsap.to(home, {
                             opacity: 0,
-                            duration: 0.5
+                            duration: 0.5,
                         })
+                        gsap.to(window, { scrollTo: "#advantages" });
                     }
                 }
             }

@@ -16,6 +16,13 @@ body {
         overflow: hidden;
     }
 
+    &._noscroll-fixed {
+        overflow: hidden;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
     &::-webkit-scrollbar {
         // display: none;
     }
