@@ -13,6 +13,7 @@ if (feedbackSlides.length) {
             Pagination,
             FreeMode
         ],
+        slidesPerView: 'auto',
         freeMode: {
             enabled: true,
             sticky: true,
@@ -23,7 +24,6 @@ if (feedbackSlides.length) {
             el: '.feedback__scroll-pagination',
             clickable: true
         },
-        slidesPerView: 'auto',
     })
 
     let transform = '';

@@ -2,7 +2,6 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
 import { Swiper, Pagination } from "swiper";
 import { closeOpenMenu } from "./menu.js";
-// import { scrollToElementRef } from "./scrollintovew.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -295,8 +294,6 @@ if (aboutSection) {
         });
     }
 
-    let timeline = gsap.timeline();
-
     ScrollTrigger.create({
         trigger: '.about__body',
         start: "center center",
@@ -396,29 +393,10 @@ if (homeScrolLinks.length) {
     homeScrolLinks.forEach(link => {
         const section = document.querySelector(`#${link.dataset.href}`);
         link.addEventListener('click', function (e) {
-            // e.preventDefault();
-
             unsetScrolltrigger = true;
             document.body.classList.remove('_noscroll-fixed')
             closeOpenMenu();
             ScrollTrigger.refresh()
-
-            // section.scrollIntoView()
-            // ScrollTrigger.refresh()
-
-            // ScrollTrigger.refresh()
-            // scrollToElementRef(
-            //     window,
-            //     section,
-            //     {
-            //         behavior: 'smooth',
-            //         block: 'start',
-            //         inline: 'nearest',
-            //     }
-            // ).then(() => {
-            //     ScrollTrigger.refresh()
-            //     unsetScrolltrigger = false;
-            // });
         })
     })
 }

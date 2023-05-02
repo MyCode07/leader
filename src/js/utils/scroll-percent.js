@@ -19,3 +19,4 @@ function setProgress(progressBar, totalLength) {
     const percentage = scrollTop / (scrollHeight - clientHeight);
     progressBar.style.strokeDashoffset = totalLength - totalLength * percentage;
 }
+ 

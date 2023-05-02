@@ -370,6 +370,14 @@
     h1 {
         height: 3ch;
 
+        @media (max-width: 425px) {
+            font-size: 34px !important;
+        }
+
+        @media (max-width: 360px) {
+            font-size: 32px !important;
+        }
+
         & > :last-child {
             i {
                 padding-left: 3ch;
