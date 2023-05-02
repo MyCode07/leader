@@ -113,7 +113,7 @@ function createHorizontalScrollAnimation(horizontalScrollSliders) {
                     trigger: sliderBody,
                     start: "top center",
                     end: () => "+=" + sliderBody.offsetWidth,
-                    scrub: true,
+                    scrub: 1,
                     invalidateOnRefresh: true,
                     onEnter: () => {
                         gsap.to(slideBody, {
@@ -161,7 +161,7 @@ function createHorizontalScrollAnimation(horizontalScrollSliders) {
                         trigger: sliderBody,
                         pin: true,
                         start: "center center",
-                        scrub: true,
+                        scrub: 1,
                         invalidateOnRefresh: true,
 
                         end: () => "+=" + sliderBody.offsetWidth,
@@ -173,7 +173,7 @@ function createHorizontalScrollAnimation(horizontalScrollSliders) {
                 ScrollTrigger.create({
                     trigger: sliderBody,
                     start: "top center",
-                    scrub: true,
+                    scrub: 1,
                     invalidateOnRefresh: true,
                     end: "+=125%",
                     onEnter: (e) => {
@@ -242,6 +242,8 @@ if (subjects) {
         trigger: subjects,
         start: "top bottom",
         end: "top+=75%",
+        scrub: 1,
+        invalidateOnRefresh: true,
         onEnter: () => {
             subjects.classList.add('_show');
         },
@@ -299,7 +301,7 @@ if (aboutSection) {
         start: "center center",
         end: "+=100%",
         scrub: 1,
-
+        invalidateOnRefresh: true,
         onEnter: () => {
             title.classList.add('_active')
             gsap.to('.about__images', {

@@ -26,33 +26,35 @@
                 }
             }
 
-            &-body div {
-                left: 81px;
-                top: 81px;
-                max-width: 438px;
-                opacity: 0;
-                transition: all 0.3s ease 0s;
+            &-body {
+                div {
+                    left: 81px;
+                    top: 81px;
+                    max-width: 438px;
+                    opacity: 0;
+                    transition: all 0.3s ease 0s;
 
-                @media (max-width: 1024px) {
-                    left: 40px;
-                    top: 40px;
-                }
+                    @media (max-width: 1024px) {
+                        left: 40px;
+                        top: 40px;
+                    }
 
-                @media (max-width: 800px) {
-                    top: 20px;
-                    left: 20px;
-                }
+                    @media (max-width: 800px) {
+                        top: 20px;
+                        left: 20px;
+                    }
 
-                @media (any-hover: hover) {
-                    &:hover {
-                        .horizontal__scroll-slide-body div {
-                            opacity: 1;
+                    @media (any-hover: hover) {
+                        &:hover {
+                            .horizontal__scroll-slide-body div {
+                                opacity: 1;
+                            }
                         }
                     }
-                }
 
-                @media (any-hover: none) {
-                    opacity: 1;
+                    @media (any-hover: none) {
+                        opacity: 1;
+                    }
                 }
             }
 

@@ -138,7 +138,7 @@
             pointer-events: none;
         }
 
-        div {
+        a {
             position: relative;
             flex: 1 1 auto;
             cursor: url("@img/svg/cursor.svg"), auto;
@@ -199,25 +199,15 @@
                 pointer-events: all;
             }
 
-            a {
+            span {
                 display: block;
                 color: currentColor;
 
-                &.korpus {
-                    font-style: normal;
-                    font-weight: 600;
-                    @include adaptive-value("font-size", 64, 20, 1);
-                    line-height: 89.9%;
-                    @include adaptive-value("margin-bottom", 18, 8, 1);
-                }
-
-                &.tel {
-                    margin-top: 4px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 118.9%;
-                    @include adaptive-value("font-size", 16, 12, 1);
-                }
+                font-style: normal;
+                font-weight: 600;
+                @include adaptive-value("font-size", 64, 20, 1);
+                line-height: 89.9%;
+                @include adaptive-value("margin-bottom", 18, 8, 1);
             }
 
             label {

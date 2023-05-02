@@ -30,8 +30,6 @@ function animate(elem) {
 }
 
 
-
-
 // stagger animnation
 
 const observerStagger = new IntersectionObserver(entries => {
@@ -46,7 +44,6 @@ const observerStagger = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 
-const stagger = 0.3;
 const staggerElems = document.querySelectorAll('.elem-animate-stagger');
 if (staggerElems.length) {
     staggerElems.forEach(elem => {
@@ -54,11 +51,12 @@ if (staggerElems.length) {
     })
 }
 
+const stagger = 0.3;
 function animateStagger(elem, i) {
     if (elem) {
         gsap.to(elem, {
             y: 0,
-            x:0,
+            x: 0,
             opacity: 1,
             duration: 0.7,
             delay: stagger * i
