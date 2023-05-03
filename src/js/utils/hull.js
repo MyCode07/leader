@@ -80,11 +80,11 @@ const observer = new IntersectionObserver(entries => {
 function observeHullGridItems(data, corpus) {
     const hullGridItems = document.querySelectorAll(".hull-grid ul li");
     const popup = document.querySelector('.hull__popup');
-    const popupClose = document.querySelector('.hull__popup-close');
-    const popupTitle = document.querySelector('.hull__popup-info h4');
-    const popupDescription = document.querySelector('.hull__popup-info p');
-    const popupSwiper = document.querySelector('.hull__popup .swiper');
-    const popupSwiperWrapper = document.querySelector('.hull__popup .swiper-wrapper');
+    const popupClose = popup.querySelector('.popup-close');
+    const popupTitle = popup.querySelector('h4');
+    const popupDescription = popup.querySelector('p');
+    const popupSwiper = popup.querySelector('.swiper');
+    const popupSwiperWrapper = popup.querySelector('.swiper-wrapper');
 
     if (hullGridItems.length) {
         hullGridItems.forEach(hull => {
@@ -142,23 +142,23 @@ function observeHullGridItems(data, corpus) {
                     opacity: 1,
                     duration: 0.7,
                 })
-                gsap.to(popup.querySelector('.hull__popup-slider'), {
+                gsap.to(popup.querySelector('.popup-slider'), {
                     opacity: 1,
                     delay: 0.3,
                     duration: 1,
                 })
-                gsap.to(popup.querySelector('.hull__popup h4'), {
+                gsap.to(popup.querySelector('h4'), {
                     opacity: 1,
                     delay: 0.6,
                     duration: 1,
                 })
-                gsap.to(popup.querySelector('.hull__popup p'), {
+                gsap.to(popup.querySelector('p'), {
                     opacity: 1,
                     delay: 0.9,
                     duration: 1,
                 })
 
-                gsap.to(popup.querySelectorAll('.hull__popup .swiper-navigation button'), {
+                gsap.to(popup.querySelectorAll('.swiper-navigation button'), {
                     opacity: 1,
                     delay: 1.2,
                     duration: 1,
@@ -177,20 +177,20 @@ function observeHullGridItems(data, corpus) {
             opacity: 0,
             duration: 0.7,
         })
-        gsap.to(popup.querySelector('.hull__popup-slider'), {
+        gsap.to(popup.querySelector('.popup-slider'), {
             opacity: 0,
             duration: 0.7,
         })
-        gsap.to(popup.querySelector('.hull__popup h4'), {
+        gsap.to(popup.querySelector('h4'), {
             opacity: 0,
             duration: 0.7,
         })
-        gsap.to(popup.querySelector('.hull__popup p'), {
+        gsap.to(popup.querySelector('p'), {
             opacity: 0,
             duration: 0.7,
         })
 
-        gsap.to(popup.querySelectorAll('.hull__popup .swiper-navigation button'), {
+        gsap.to(popup.querySelectorAll('.swiper-navigation button'), {
             opacity: 0,
             duration: 0.7,
         })

@@ -9,6 +9,7 @@ import "./utils/team.js";
 import "./utils/course.js";
 import "./utils/education.js";
 import "./utils/hull.js";
+import "./utils/detsad-popup.js";
 
 import "./utils/animate-gsap.js";
 import "./utils/breadcambs.js";
